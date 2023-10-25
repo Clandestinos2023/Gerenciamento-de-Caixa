@@ -1,0 +1,49 @@
+create database gerenciamento_caixa;
+
+use gerenciamento_caixa
+
+create table funcionario (
+id int not null primary key auto_increment,
+nome varchar(300) not null,
+usuario varchar(50) not null,
+senha varchar(50) not null,
+telefone varchar(17) not null,
+email varchar(60) not null,
+sexo varchar(20) not null,
+cpf varchar(14) not null);
+
+create table cliente (
+id int not null primary key auto_increment,
+nome varchar(300) not null,
+idade int not null,
+tipo_cliente varchar(8) not null,
+codigo_cliente varchar(60) not null,
+contato varchar(17) not null);
+
+create table venda
+id int not null primary key auto_increment,
+hora datetime default current_timestamp,
+valor double not null,
+id_cliente int not null,
+descricao text,
+foreign key(id_cliente) references cliente(id));
+
+create table produto(
+id int not null primary key auto_increment,
+nome varchar(50) not null,
+valor double not null,
+quantidade int not null);
+
+create table alteracoesValor(
+id int not null primary key auto_increment,
+hora datetime default current_timestamp,
+valor_inicial double not null,
+valor_final double not null,
+id_cliente int not null,
+foreign key(id_cliente) references cliente(id));
+
+create table admins(
+id int not null primary key auto_increment,
+nome varchar(50) not null,
+usuario varchar(50) not null,
+senha varchar(50) not null);
