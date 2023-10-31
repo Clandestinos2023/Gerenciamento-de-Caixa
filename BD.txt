@@ -16,11 +16,11 @@ create table cliente (
 id int not null primary key auto_increment,
 nome varchar(300) not null,
 idade int not null,
-tipo_cliente varchar(8) not null,
+tipo_cliente varchar(12) not null,
 codigo_cliente varchar(60) not null,
 contato varchar(17) not null);
 
-create table venda
+create table venda(
 id int not null primary key auto_increment,
 hora datetime default current_timestamp,
 valor double not null,
