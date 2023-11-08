@@ -1,8 +1,24 @@
-![Auto Assign](https://github.com/Grupo Clandestino/demo-repository/actions/workflows/auto-assign.yml/badge.svg)
+# Gerenciamento-de-Caixa
 
-![Proof HTML](https://github.com/Grupo Clandestino/demo-repository/actions/workflows/proof-html.yml/badge.svg)
+# Sobre o projeto
 
-# Welcome to your organization's demo respository
-This code repository (or "repo") is designed to demonstrate the best GitHub has to offer with the least amount of noise.
+O Gerenciamente de Caixa e um projeto voltado para aprimorarmos as boas praticas de MVC( model visual controller), sendo uma boa pratica principalemente para desenvolvedores e equipes de TI.
+Projeto devido a trabalho do curso Análise e Desenvolvimento de sistemas no Centro Universitario UNA - Contagem/MG
 
-The repo includes an `index.html` file (so it can render a web page), two GitHub Actions workflows, and a CSS stylesheet dependency.
+
+# Tecnologias utilizadas
+## Back end
+- Java
+- Spring Boot
+- JPA / Hibernate
+- Maven
+## Front end
+- HTML / CSS 
+## Implantação em produção
+- Back end: Heroku
+- Front end web: A definir
+- Banco de dados: A definir
+
+# Autor
+
+Grupo Clandestino
