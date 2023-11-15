@@ -5,6 +5,8 @@
  */
 package model;
 
+import DAO.ProdutoDAO;
+
 /**
  *
  * @author Davidson
@@ -16,10 +18,14 @@ public class Produto {
     private double valor;
     private int quantidade;
     
-    public void cadastrar(String nome, double valor, int quantidade) {
-        this.nome = nome;
-        this.valor = valor;
-        this.quantidade = quantidade;
+    ProdutoDAO dao = new ProdutoDAO();
+    
+    public void cadastrar(String name, double value, int quant) {
+        this.nome = name;
+        this.valor = value;
+        this.quantidade = quant;
+        
+        dao.cadastrar(name, value, quant);
     }
     
     public void editar(String nome) {

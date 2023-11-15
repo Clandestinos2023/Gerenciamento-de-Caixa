@@ -1,9 +1,9 @@
 package view;
 
+import view.telasCadastro.telaCadastroCliente;
+import view.telasCadastro.telaCadastroFuncionario;
+import view.telasCadastro.telaCadastroProduto;
 
-import view.telasCadastros.telaCadastroCliente;
-import view.telasCadastros.telaCadastroFuncionario;
-import view.telasCadastros.telaCadastroProduto;
 
 /**
  * @author : Davidson Teixeira
@@ -205,7 +205,6 @@ public class telaPrincipal extends javax.swing.JFrame {
     private void jMIFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIFuncionarioActionPerformed
         telaCadastroFuncionario screen = new telaCadastroFuncionario();
         screen.setVisible(true);
-        dispose();
     }//GEN-LAST:event_jMIFuncionarioActionPerformed
 
     private void jMIProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIProdutoActionPerformed

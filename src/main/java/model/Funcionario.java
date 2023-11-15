@@ -22,21 +22,53 @@ public class Funcionario {
     private String email;
     private String sexo;
     private String cpf;
-
-    public void cadastrar(String nome, String usuario, String senha, String confirmacaoSenha,
-            String telefone, String email, String sexo, String cpf) {
-        this.nome = nome;
-        this.usuario = usuario;
-        this.senha = senha;
-        this.confirmacaoSenha = confirmacaoSenha;
-        this.telefone = telefone;
-        this.email = email;
-        this.sexo = sexo;
-        this.cpf = cpf;
-
-        FuncionarioDAO dao = new FuncionarioDAO();
+    
+    FuncionarioDAO dao = new FuncionarioDAO();
+    /*
+    // GETTERS E SETTERS
+    public void setID(int id) {
+        this.id = id;
     }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public void setUser(String user) {
+    }
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    public void setConfirmaSenha(String confirmSenha) {
+        this.confirmacaoSenha = confirmSenha;
+    }
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+    public void setCPF(String cpf) {
+        this.cpf = cpf;
+    }
+    */
 
+    public void cadastrar(String name, String user, String pass, String confirmPass,
+            String phone, String mail, String sex, String CPF) throws Exception {
+        this.nome = name;
+        this.usuario = user;
+        this.senha = pass;
+        this.confirmacaoSenha = confirmPass;
+        this.telefone = phone;
+        this.email = mail;
+        this.sexo = sex;
+        this.cpf = CPF;
+
+        dao.cadastrar(name, user, pass, confirmPass, phone, mail, sex, CPF);
+    }
+    
+    /*
     public void editar(String nome) {
         System.out.println(nome);
     }
@@ -48,6 +80,7 @@ public class Funcionario {
     public void vizualizar(String nome) {
         System.out.println(nome);
     }
+    */
 
     /**
      * Funções necessárias: -cadastrar -alterar -excluir -vizualizar

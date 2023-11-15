@@ -1,6 +1,9 @@
 package view;
 
+import DAO.ClienteDAO;
 import controller.VendaController;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -300,12 +303,23 @@ public class telaVenda extends javax.swing.JFrame {
     private void jBComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBComprarActionPerformed
         String pesquisa, descricao;
         double valor;
+        int idCli = 0;
         
         VendaController vendcont = new VendaController();
 
         pesquisa = (jCBCliente.getSelectedItem().toString());
         descricao = (jTADescricao.getText());
         valor = Double.parseDouble(jTFValor.getText());
+        
+        ClienteDAO clidao = new ClienteDAO();
+        
+        try {
+            idCli = clidao.getID(pesquisa);
+        } catch (Exception ex) {
+            Logger.getLogger(telaVenda.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        vendcont.cadastrar(idCli, valor, descricao);
         JOptionPane.showMessageDialog(jLExib, "Compra efetuada com sucesso!");
 
         telaVenda obj = new telaVenda();

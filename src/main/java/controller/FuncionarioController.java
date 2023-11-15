@@ -5,7 +5,6 @@
  */
 package controller;
 
-import DAO.FuncionarioDAO;
 import model.Funcionario;
 
 /**
@@ -16,11 +15,12 @@ public class FuncionarioController {
     
     Funcionario model = new Funcionario();
     
-    public void cadastrar(String nome, String usuario, String senha, String confirmacaoSenha,
-                String telefone, String email, String sexo, String cpf) throws Exception {
-        model.cadastrar(nome,usuario,senha,confirmacaoSenha, telefone, email, sexo, cpf);
+    public void cadastrar(String name, String user, String pass, String confirmPass,
+                String phone, String mail, String sex, String CPF) throws Exception {
+        model.cadastrar(name, user, pass, confirmPass, phone, mail, sex, CPF);
     }
     
+    /*
     public void editar(String nome) {
         model.editar(nome);
     }
@@ -32,5 +32,6 @@ public class FuncionarioController {
     public void vizualizar(String nome) {
         model.vizualizar(nome);
     }
+    */
     
 }

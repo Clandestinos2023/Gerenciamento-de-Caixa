@@ -18,7 +18,7 @@ public class telaAlterarProduto extends javax.swing.JFrame {
         setTitle("Tela de alteração do produto");
         initComponents();
         ProdutoDAO prod = new ProdutoDAO();
-        prod.listar(jCBItens);
+        //prod.listar(jCBItens);
     }
 
     @SuppressWarnings("unchecked")

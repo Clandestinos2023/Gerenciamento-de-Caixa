@@ -15,10 +15,11 @@ public class ClienteController {
     
     Cliente model = new Cliente();
     
-    public void cadastrar(String nome, int idade, String tipoCliente, String codCliente, String contato) throws Exception {
-        model.cadastrar(nome, idade, tipoCliente, codCliente, contato);
+    public void cadastrar(String name, int age, String typeCliente, String codigo, String telefone) throws Exception {
+        model.cadastrar(name, age, typeCliente, codigo, telefone);
     }
     
+    /*
     public void editar(String nome) throws Exception {
         model.editar(nome);
     }
@@ -30,5 +31,6 @@ public class ClienteController {
     public void vizualizar(String nome) {
         model.vizualizar(nome);
     }
+    */
     
 }

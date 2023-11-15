@@ -8,10 +8,11 @@ package DAO;
 import database.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import view.telasCadastros.telaCadastroProduto;
+import view.telasCadastro.telaCadastroProduto;
 
 /**
  *
@@ -26,15 +27,13 @@ public class ProdutoDAO {
             Connection con = new Conexao().getConnection();
             System.out.println("Connection established!");
 
-            PreparedStatement stmt = con.prepareStatement(insert);
+            try (PreparedStatement stmt = con.prepareStatement(insert)) {
+                stmt.setString(1, nome);
+                stmt.setDouble(2, valor);
+                stmt.setInt(3, quantidade);
 
-            stmt.setString(1, nome);
-            stmt.setDouble(2, valor);
-            stmt.setInt(3, quantidade);
-
-            stmt.executeUpdate();
-
-            stmt.close();
+                stmt.executeUpdate();
+            }
             System.out.println("Connection closed!");
 
 //            dispose();
@@ -42,7 +41,6 @@ public class ProdutoDAO {
 //            obj.setVisible(true);
 //
 //            JOptionPane.showMessageDialog(jLExib, "Produto cadastrado com sucesso!");
-
         } catch (SQLException ex) {
             System.err.println(ex);
         } catch (Exception ex) {
@@ -50,6 +48,95 @@ public class ProdutoDAO {
         }
     }
 
+    public int getID(String nome) throws Exception {
+        int id = 0;
+        try {
+            Connection con = new database.Conexao().getConnection();
+
+            String sql = "select id from produto where nome like '" + nome + "';";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                id = rs.getInt("id");
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return id;
+    }
+
+    public int getQuantidade(int id) throws Exception {
+        int quantidade = 0;
+        try {
+            Connection con = new database.Conexao().getConnection();
+
+            String sql = "select quantidade from produto where id='" + id + "';";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                quantidade = rs.getInt("quantidade");
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return quantidade;
+    }
+
+    public String getNome(int id) throws Exception {
+        String nome = null;
+        try {
+            Connection con = new database.Conexao().getConnection();
+
+            String sql = "select nome from produto where id='" + id + "';";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                nome = rs.getString("nome");
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return nome;
+    }
+
+    public double getValor(int id) throws Exception {
+        double valor = 0;
+        try {
+            Connection con = new database.Conexao().getConnection();
+
+            String sql = "select valor from produto where id='" + id + "';";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                valor = rs.getDouble("valor");
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return valor;
+    }
+
+    /*
     public void editar(String nome) {
         System.out.println(nome);
 
@@ -96,7 +183,7 @@ public class ProdutoDAO {
          } catch (Exception ex) {
          System.out.println(ex);;
          }
-         */
+         
     }
 
     public void excluir(String nome) {
@@ -132,7 +219,7 @@ public class ProdutoDAO {
          }catch(SQLException ex){
          System.err.println(ex);
          }
-         */
+         
     }
 
     public void atualizar(String nome) {
@@ -160,7 +247,7 @@ public class ProdutoDAO {
          Logger.getLogger(telaAlterarProduto.class
          .getName()).log(Level.SEVERE, null, ex);
          }
-         */
+         
     }
 
     public void listar(javax.swing.JComboBox lid) {
@@ -186,7 +273,7 @@ public class ProdutoDAO {
          } catch (Exception ex) {
          Logger.getLogger(DepositoAcampante.class.getName()).log(Level.SEVERE, null, ex);
          }
-         */
+         
     }
 
     public void pesquisar(javax.swing.JTextField pesq, javax.swing.JComboBox prod) {
@@ -217,9 +304,9 @@ public class ProdutoDAO {
          } catch (Exception ex) {
          Logger.getLogger(TelaCompra.class.getName()).log(Level.SEVERE, null, ex);
          }
-         */
+        
     }
-
+     */
     /**
      * Funções necessárias: -cadastrar -alterar -excluir -vizualizar
      */

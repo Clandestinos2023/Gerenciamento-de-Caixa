@@ -15,8 +15,8 @@ public class VendaController {
     
     Venda model = new Venda();
     
-    public void cadastrar(String nomeCliente,double valorCompra, String descricao) {
-        model.cadastrar(nomeCliente, valorCompra, descricao);
+    public void cadastrar(int idCliente,double valorCompra, String descricao) {
+        model.cadastrar(idCliente, valorCompra, descricao);
     }
     
     public void editar(String nome) {

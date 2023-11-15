@@ -5,7 +5,6 @@
  */
 package controller;
 
-import DAO.ProdutoDAO;
 import model.Produto;
 
 /**
@@ -15,13 +14,14 @@ import model.Produto;
 public class ProdutoController {
     
     Produto model = new Produto();
-    ProdutoDAO dao = new ProdutoDAO();
     
-    public void cadastrar(String nome, double valor, int quantidade) {
-        model.cadastrar(nome, valor, quantidade);
-        dao.cadastrar(nome, valor, quantidade);
+    
+    public void cadastrar(String name, double value, int quant) {
+        model.cadastrar(name, value, quant);
+        
     }
     
+    /*
     public void editar(String nome) {
         model.editar(nome);
         dao.editar(nome);
@@ -36,5 +36,6 @@ public class ProdutoController {
         model.vizualizar(nome);
         dao.vizualizar(nome);
     }
+    */
     
 }

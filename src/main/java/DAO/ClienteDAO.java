@@ -53,14 +53,14 @@ public class ClienteDAO {
         try {
             Connection con = new database.Conexao().getConnection();
 
-            String sql = "select id from cliente where nome='davidson';";
+            String sql = "select id from cliente where nome='" + nome + "';";
 
             PreparedStatement stmt = con.prepareStatement(sql);
 
             ResultSet rs = stmt.executeQuery();
-            
-            while (rs.next()){
-                
+
+            while (rs.next()) {
+
                 id = rs.getInt("id");
             }
 
@@ -69,6 +69,122 @@ public class ClienteDAO {
         }
         return id;
     }
+    
+    public int getIdade(int id) throws Exception {
+        int idade = 0;
+        try {
+            Connection con = new database.Conexao().getConnection();
+
+            String sql = "select idade from cliente where id='" + id + "';";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                idade = rs.getInt("idade");
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return idade;
+    }
+    
+    public String getNome(int id) throws Exception {
+        String nome = null;
+        try {
+            Connection con = new database.Conexao().getConnection();
+
+            String sql = "select nome from cliente where id='" + id + "';";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                nome = rs.getString("nome");
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return nome;
+    }
+    
+    public String getTipoCliente(int id) throws Exception {
+        String tipoCliente = null;
+        try {
+            Connection con = new database.Conexao().getConnection();
+
+            String sql = "select tipo_cliente from cliente where id='" + id + "';";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                tipoCliente = rs.getString("tipo_cliente");
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return tipoCliente;
+    }
+    
+    public String getCodigoCliente(int id) throws Exception {
+        String codigoCliente = null;
+        try {
+            Connection con = new database.Conexao().getConnection();
+
+            String sql = "select codigo_cliente from cliente where id='" + id + "';";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                codigoCliente = rs.getString("codigo_cliente");
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return codigoCliente;
+    }
+    
+    public String getContato(int id) throws Exception {
+        String contato = null;
+        try {
+            Connection con = new database.Conexao().getConnection();
+
+            String sql = "select contato from cliente where id='" + id + "';";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                contato = rs.getString("contato");
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return contato;
+    }
+    
+    
+    
+    
+    
+    /*
     
     public void editar(String nome) {
         
@@ -115,7 +231,7 @@ public class ClienteDAO {
          } catch (Exception ex) {
          System.out.println(ex);;
          }
-         */
+         
     }
 
     public void excluir(String nome) {
@@ -151,7 +267,7 @@ public class ClienteDAO {
          }catch(SQLException ex){
          System.err.println(ex);
          }
-         */
+         
     }
 
     public void atualizar(String nome) {
@@ -179,7 +295,7 @@ public class ClienteDAO {
          Logger.getLogger(telaAlterarProduto.class
          .getName()).log(Level.SEVERE, null, ex);
          }
-         */
+         
     }
 
     public void listar(javax.swing.JComboBox lid) {
@@ -205,7 +321,7 @@ public class ClienteDAO {
          } catch (Exception ex) {
          Logger.getLogger(DepositoAcampante.class.getName()).log(Level.SEVERE, null, ex);
          }
-         */
+         
     }
 
     public void pesquisar(javax.swing.JTextField pesq, javax.swing.JComboBox prod) {
@@ -236,8 +352,9 @@ public class ClienteDAO {
          } catch (Exception ex) {
          Logger.getLogger(TelaCompra.class.getName()).log(Level.SEVERE, null, ex);
          }
-         */
+         
     }
+    */
 
     /**
      * Funções necessárias: -cadastrar -alterar -excluir -vizualizar

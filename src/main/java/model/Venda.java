@@ -14,18 +14,18 @@ import DAO.VendaDAO;
 public class Venda {
     
     private int id;
-    private String nomeCliente;
+    private int idCliente;
     private double valorCompra;
     private String descricao;
     
     VendaDAO dao = new VendaDAO();
     
-    public void cadastrar(String nomeCliente,double valorCompra, String descricao) {
-        this.nomeCliente = nomeCliente;
+    public void cadastrar(int idCliente,double valorCompra, String descricao) {
+        this.idCliente = idCliente;
         this.valorCompra = valorCompra;
         this.descricao = descricao;
         
-        dao.cadastrar(nomeCliente, valorCompra, descricao);
+        dao.cadastrar(idCliente, valorCompra, descricao);
     }
     
     public void editar(String nome) {

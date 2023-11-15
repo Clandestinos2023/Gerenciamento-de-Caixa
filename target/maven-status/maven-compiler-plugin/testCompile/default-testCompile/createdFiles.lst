@@ -1,0 +1,9 @@
+model\VendaTest.class
+DAO\VendaDAOTest.class
+DAO\FuncionarioDAOTest.class
+model\ProdutoTest.class
+model\FuncionarioTest.class
+SuiteTest.class
+DAO\ClienteDAOTest.class
+DAO\ProdutoDAOTest.class
+model\ClienteTest.class

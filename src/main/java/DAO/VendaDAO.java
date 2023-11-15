@@ -7,12 +7,13 @@ package DAO;
 
 import database.Conexao;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import view.telasCadastros.telaCadastroProduto;
+import view.telasCadastro.telaCadastroProduto;
 
 /**
  *
@@ -20,15 +21,14 @@ import view.telasCadastros.telaCadastroProduto;
  */
 public class VendaDAO {
 
-    public void cadastrar(String nomeCliente, double valorCompra, String descricao) {
-        //  CADASTRAR - MODELO
+    public void cadastrar(int idCliente, double valorCompra, String descricao) {
         try {
             String insert = "insert into venda(id_cliente, valor, descricao) values (?, ?, ?)";
             Connection con = new Conexao().getConnection();
             System.out.println("Connection established!");
 
             try (PreparedStatement stmt = con.prepareStatement(insert)) {
-                stmt.setString(1, nomeCliente);
+                stmt.setInt(1, idCliente);
                 stmt.setDouble(2, valorCompra);
                 stmt.setString(3, descricao);
 
@@ -36,19 +36,81 @@ public class VendaDAO {
             }
             System.out.println("Connection closed!");
 
-//            dispose();
-//            telaCadastroProduto obj = new telaCadastroProduto();
-//            obj.setVisible(true);
-//
-//            JOptionPane.showMessageDialog(jLExib, "Produto cadastrado com sucesso!");
         } catch (SQLException ex) {
             System.err.println(ex);
         } catch (Exception ex) {
             Logger.getLogger(telaCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+        public int getIDCliente(int id) throws Exception {
+        int idCliente = 0;
+        try {
+            Connection con = new database.Conexao().getConnection();
+
+            String sql = "select id_cliente from venda where id='" + id + "';";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                idCliente = rs.getInt("id_cliente");
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return idCliente;
+    }
+
+    public String getDescricao(int id) throws Exception {
+        String descricao = null;
+        try {
+            Connection con = new database.Conexao().getConnection();
+
+            String sql = "select descricao from venda where id='" + id + "';";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                descricao = rs.getString("descricao");
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return descricao;
+    }
+
+    public double getValor(int id) throws Exception {
+        double valor = 0;
+        try {
+            Connection con = new database.Conexao().getConnection();
+
+            String sql = "select valor from venda where id='" + id + "';";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                valor = rs.getDouble("valor");
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return valor;
+    }
 
 
+    /*
     public void editar(String nome) {
         System.out.println(nome);
 
@@ -95,7 +157,7 @@ public class VendaDAO {
          } catch (Exception ex) {
          System.out.println(ex);;
          }
-         */
+         
     }
 
     public void excluir(String nome) {
@@ -131,7 +193,7 @@ public class VendaDAO {
          }catch(SQLException ex){
          System.err.println(ex);
          }
-         */
+         
     }
 
     public void atualizar(String nome) {
@@ -159,7 +221,7 @@ public class VendaDAO {
          Logger.getLogger(telaAlterarProduto.class
          .getName()).log(Level.SEVERE, null, ex);
          }
-         */
+         
     }
 
     public void listar(javax.swing.JComboBox lid) {
@@ -185,7 +247,7 @@ public class VendaDAO {
          } catch (Exception ex) {
          Logger.getLogger(DepositoAcampante.class.getName()).log(Level.SEVERE, null, ex);
          }
-         */
+         
     }
 
     public void pesquisar(javax.swing.JTextField pesq, javax.swing.JComboBox prod) {
@@ -216,8 +278,9 @@ public class VendaDAO {
          } catch (Exception ex) {
          Logger.getLogger(TelaCompra.class.getName()).log(Level.SEVERE, null, ex);
          }
-         */
+         
     }
+    */
 
     /**
      * Funções necessárias: -cadastrar -alterar -excluir -vizualizar
