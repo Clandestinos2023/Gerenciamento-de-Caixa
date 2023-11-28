@@ -1,16 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
+
+/**
+ * @author : Davidson Teixeira Filho
+ * @month : 11/2023
+ */
 
 import DAO.FuncionarioDAO;
 
-/**
- *
- * @author Davidson
- */
 public class Funcionario {
 
     private int id;
@@ -24,8 +20,8 @@ public class Funcionario {
     private String cpf;
     
     FuncionarioDAO dao = new FuncionarioDAO();
-    /*
-    // GETTERS E SETTERS
+
+    //  SETTERS
     public void setID(int id) {
         this.id = id;
     }
@@ -33,6 +29,7 @@ public class Funcionario {
         this.nome = nome;
     }
     public void setUser(String user) {
+        this.usuario = user;
     }
     public void setSenha(String senha) {
         this.senha = senha;
@@ -52,8 +49,37 @@ public class Funcionario {
     public void setCPF(String cpf) {
         this.cpf = cpf;
     }
-    */
+    
+    //  GETTERS
+    public int setID() {
+        return this.id;
+    }
+    public String setNome() {
+        return this.nome;
+    }
+    public String setUser() {
+        return this.usuario;
+    }
+    public String setSenha() {
+        return this.senha;
+    }
+    public String getConfirmaSenha() {
+        return this.confirmacaoSenha;
+    }
+    public String getTelefone() {
+        return this.telefone;
+    }
+    public String getEmail() {
+        return this.email;
+    }
+    public String getSexo() {
+        return this.sexo;
+    }
+    public String getCPF() {
+        return this.cpf;
+    }
 
+    //  MÉTODO PARA CRIAÇÃO DE UM OBJETO COM AS INFORMAÇÕES DO FUNCIONÁRIO
     public void cadastrar(String name, String user, String pass, String confirmPass,
             String phone, String mail, String sex, String CPF) throws Exception {
         this.nome = name;
@@ -68,21 +94,4 @@ public class Funcionario {
         dao.cadastrar(name, user, pass, confirmPass, phone, mail, sex, CPF);
     }
     
-    /*
-    public void editar(String nome) {
-        System.out.println(nome);
-    }
-
-    public void excluir(String nome) {
-        System.out.println(nome);
-    }
-
-    public void vizualizar(String nome) {
-        System.out.println(nome);
-    }
-    */
-
-    /**
-     * Funções necessárias: -cadastrar -alterar -excluir -vizualizar
-     */
 }

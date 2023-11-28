@@ -1,16 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
+
+/**
+ * @author : Davidson Teixeira Filho
+ * @month : 11/2023
+ */
 
 import DAO.ProdutoDAO;
 
-/**
- *
- * @author Davidson
- */
 public class Produto {
     
     private int id;
@@ -20,6 +16,35 @@ public class Produto {
     
     ProdutoDAO dao = new ProdutoDAO();
     
+    // SETTERS
+    public void setID(int ID) {
+        this.id = ID;
+    }
+    public void setNome(String name) {
+        this.nome = name;
+    }
+    public void setValor(double value) {
+        this.valor = value;
+    }
+    public void setQuantidade(int qnt) {
+        this.quantidade = qnt;
+    }
+    
+    // GETTERS
+    public int getID() {
+        return this.id;
+    }
+    public String getNome() {
+        return this.nome;
+    }
+    public double getValor() {
+        return this.valor;
+    }
+    public int getQuantidade() {
+        return this.quantidade;
+    }
+
+    //  MÉTODO PARA CRIAÇÃO DE UM OBJETO COM AS INFORMAÇÕES DO PRODUTO
     public void cadastrar(String name, double value, int quant) {
         this.nome = name;
         this.valor = value;
@@ -27,24 +52,5 @@ public class Produto {
         
         dao.cadastrar(name, value, quant);
     }
-    
-    public void editar(String nome) {
-        System.out.println(nome);
-    }
-    
-    public void excluir(String nome) {
-        System.out.println(nome);
-    }
-    
-    public void vizualizar(String nome) {
-        System.out.println(nome);
-    }
-    /**
-     * Funções necessárias:
-     * -cadastrar
-     * -alterar
-     * -excluir
-     * -vizualizar
-    */
-    
+         
 }

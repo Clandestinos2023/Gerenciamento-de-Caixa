@@ -1,19 +1,15 @@
 
+/**
+ * @author : Davidson Teixeira Filho
+ * @month : 11/2023
+ */
+
 import org.junit.platform.suite.api.IncludeClassNamePatterns;
 import org.junit.platform.suite.api.SelectPackages;
 import org.junit.platform.suite.api.Suite;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author Davidson
- */
 @Suite
-@SelectPackages("model")
+@SelectPackages({"DAO", "controller", "model"})
 @IncludeClassNamePatterns("^.*Tests?$")
 public class SuiteTest {
     

@@ -1,21 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
- */
 package DAO;
 
-import java.sql.Date;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
+/**
+ * @author : Davidson Teixeira Filho
+ * @month : 11/2023
+ */
+
+import javax.swing.JTable;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import view.telasExibicao.telaVisualizarVendas;
 
-/**
- *
- * @author Davidson
- */
 public class VendaDAOTest {
 
     /**
@@ -33,6 +27,7 @@ public class VendaDAOTest {
 
     /**
      * Test of getIDCliente method, of class VendaDAO.
+     * @throws java.lang.Exception
      */
     @Test
     public void testGetIDCliente() throws Exception {
@@ -46,6 +41,7 @@ public class VendaDAOTest {
 
     /**
      * Test of getValor method, of class VendaDAO.
+     * @throws java.lang.Exception
      */
     @Test
     public void testGetValor() throws Exception {
@@ -59,6 +55,7 @@ public class VendaDAOTest {
 
     /**
      * Test of getDescricao method, of class VendaDAO.
+     * @throws java.lang.Exception
      */
     @Test
     public void testGetDescricao() throws Exception {
@@ -69,5 +66,17 @@ public class VendaDAOTest {
         String result = instance.getDescricao(id);
         assertEquals(expResult, result);
     }
+
+//    /**
+//     * Test of visualizarVendas method, of class VendaDAO.
+//     * @throws java.lang.Exception
+//     */
+//    @Test
+//    public void testVisualizarVendas() throws Exception {
+//        System.out.println("visualizarVendas");
+//        JTable vend = telaVisualizarVendas.vendas;
+//        VendaDAO instance = new VendaDAO();
+//        instance.visualizarVendas(vend);
+//    }
     
 }

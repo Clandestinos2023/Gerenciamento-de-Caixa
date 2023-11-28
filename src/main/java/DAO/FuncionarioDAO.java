@@ -1,27 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
+
+/**
+ * @author : Davidson Teixeira Filho
+ * @month : 11/2023
+ */
 
 import database.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import model.Funcionario;
+import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Davidson
- */
 public class FuncionarioDAO {
 
+    //  MÉTODO PARA CADASTRAR O FUNCIONÁRIO NO BD
     public void cadastrar(String nome, String usuario, String senha, String confirmacaoSenha,
             String telefone, String email, String sexo, String cpf) throws Exception {
 
-        // CADASTRAR - MODELO
         try {
             String insert = "insert into funcionario(nome, usuario, senha, telefone, "
                     + "email, sexo, cpf) values (?,?,?,?,?,?,?)";
@@ -43,17 +40,12 @@ public class FuncionarioDAO {
             stmt.close();
             System.out.println("Connection closed!");
 
-//            dispose();
-//            CadastroAcampante set = new CadastroAcampante();
-//            set.setVisible(true);
-//
-//            JOptionPane.showMessageDialog(jLExib, "Acampante cadastrado com sucesso!");
         } catch (SQLException ex) {
             System.err.println(ex);
         }
-
     }
 
+    //  MÉTODO PARA BUSCAR O ID DO FUNCIONÁRIO
     public int getID(String nome) throws Exception {
         int id = 0;
         try {
@@ -76,6 +68,7 @@ public class FuncionarioDAO {
         return id;
     }
     
+    //  MÉTODO PARA BUSCAR O NOME DO FUNCIONÁRIO
     public String getNome(int id) throws Exception {
         String nome = null;
         try {
@@ -98,6 +91,7 @@ public class FuncionarioDAO {
         return nome;
     }
     
+    //  MÉTODO PARA BUSCAR O USUÁRIO DO FUNCIONÁRIO
     public String getUsuario(int id) throws Exception {
         String usuario = null;
         try {
@@ -120,6 +114,7 @@ public class FuncionarioDAO {
         return usuario;
     }
     
+    //  MÉTODO PARA BUSCAR A SENHA DO FUNCIONÁRIO
     public String getSenha(int id) throws Exception {
         String senha = null;
         try {
@@ -141,7 +136,8 @@ public class FuncionarioDAO {
         }
         return senha;
     }
-    
+
+    //  MÉTODO PARA BUSCAR O TELEFONE DO FUNCIONÁRIO
     public String getTelefone(int id) throws Exception {
         String telefone = null;
         try {
@@ -164,6 +160,7 @@ public class FuncionarioDAO {
         return telefone;
     }
     
+    //  MÉTODO PARA BUSCAR O EMAIL DO FUNCIONÁRIO
     public String getEmail(int id) throws Exception {
         String email = null;
         try {
@@ -186,6 +183,7 @@ public class FuncionarioDAO {
         return email;
     }
     
+    //  MÉTODO PARA BUSCAR O SEXO DO FUNCIONÁRIO
     public String getSexo(int id) throws Exception {
         String sexo = null;
         try {
@@ -208,6 +206,7 @@ public class FuncionarioDAO {
         return sexo;
     }
     
+    //  MÉTODO PARA BUSCAR O CPF DO FUNCIONÁRIO
     public String getCPF (int id) throws Exception {
         String cpf = null;
         try {
@@ -230,180 +229,152 @@ public class FuncionarioDAO {
         return cpf;
     }
     
-    /*
+    //  MÉTODO PARA LISTAR TODOS OS NOMES DOS FUNCIONÁRIOS
+    public void listarFuncionario(javax.swing.JComboBox func) throws Exception {
+        func.removeAllItems();
+        func.addItem("------");
 
-    public void editar(String nome) {
-        System.out.println(nome);
+        try {
+            Connection con = new Conexao().getConnection();
+            Statement stm = con.createStatement();
 
-        // TABELA SECUNDARIA - MODELO
-        /*
-         try {
+            String sql = "select nome from funcionario";
 
-         //  busca e atualização de valor na tabela Produto
-         Connection con = new Conexao().getConnection();
+            ResultSet rs = (ResultSet) stm.executeQuery(sql);
 
-         //  registro de depósito na tabela COMPRA
-         Statement state = con.createStatement();
+            while (rs.next()) {
+                func.addItem(rs.getString("nome"));
+            }
 
-         String sel = "select id from produto where nome='" + pesquisa + "'";
+        } catch (SQLException ex) {
+            System.err.println("Ocorreu um erro ao carregar o ComboBox");
+        }
 
-         ResultSet r = state.executeQuery(sel);
-         r.next();
-         int id = r.getInt("id");
-         System.out.println(id);
-
-         String insert = "insert into alteracoesValor(valor_inicial, valor_final, id_acamp, lider_caixa) values (?,?,?,?)";
-         System.out.println("Connection established!");
-
-         PreparedStatement input = con.prepareStatement(insert);
-
-         input.setDouble(1, atualizar.valor);
-         input.setDouble(2, atualizar.novoValor);
-         input.setInt(3, id);
-         input.setString(4, lider);
-
-         input.executeUpdate();
-
-         input.close();
-         System.out.println("Connection closed!");
-            
-         dispose();
-         telaAlterarProduto obj = new telaAlterarProduto();
-         obj.setVisible(true);
-            
-         JOptionPane.showMessageDialog(jLExib, "Produto alterado com sucesso!");
-
-         } catch (SQLException ex) {
-         System.err.println(ex);
-         } catch (Exception ex) {
-         System.out.println(ex);;
-         }
-         
     }
 
-    public void excluir(String nome) {
-        System.out.println(nome);
+    //  MÉTODO PARA LISTAR TODOS OS NOMES DE FUNCIONÁRIOS QUE SÃO PARECIDOS COM O PASSADO
+    public void pesquisarFuncionario(String pesquisa, javax.swing.JComboBox func) throws Exception {
+        func.removeAllItems();
+        func.addItem("------");
+
+        try {
+            Connection con = new Conexao().getConnection();
+            Statement stm = con.createStatement();
+
+            String sql = "select nome from funcionario where nome like '%" + pesquisa + "%'";
+
+            ResultSet rs = (ResultSet) stm.executeQuery(sql);
+
+            while (rs.next()) {
+                func.addItem(rs.getString("nome"));
+            }
+
+        } catch (SQLException ex) {
+            System.err.println("Ocorreu um erro ao carregar o ComboBox");
+        }
+
     }
 
-    public void vizualizar(String nome) {
-        System.out.println(nome);
+    //  MÉTODO PARA BUSCAR AS INFORMAÇÕES DE UM FUNCIONÁRIO E SETAR AS INFORMAÇÕES NA VIEW
+    public void getFuncionario(int id, javax.swing.JTextField nome, javax.swing.JTextField usuario, javax.swing.JTextField senha,
+            javax.swing.JTextField confirmacaoSenha, javax.swing.JTextField telefone, javax.swing.JTextField email, javax.swing.JRadioButton masc, 
+            javax.swing.JRadioButton fem, javax.swing.JTextField cpf) throws Exception {
+        
+        String name = "", user = "", phone = "", mail = "", sex = "", CPF = "", pass = "";
 
-        // VIZUALIZAR - MODELO
-        /*
-         try {
-         Connection con = new database.Conexao().getConnection();
-            
-         String sql = "select id, nome, idade, contato, rg, alergia from acampante";
-            
-         PreparedStatement stmt = con.prepareStatement(sql);
-            
-         ResultSet rs = stmt.executeQuery();
-            
-         DefaultTableModel modelo = (DefaultTableModel) jTbAcampantes.getModel();
-         modelo.setNumRows(0);
-            
-         while (rs.next()){
-         int id = rs.getInt("id");
-         String nome = rs.getString("nome");
-         int idade = rs.getInt("idade");
-         String contato = rs.getString("contato");
-         String rg = rs.getString("rg");
-         String alergia = rs.getString("alergia");
-         modelo.addRow(new Object[]{id,nome,idade, contato, rg, alergia});   
-         }
-         }catch(SQLException ex){
-         System.err.println(ex);
-         }
-         
+        try {
+            Connection con = new Conexao().getConnection();
+            Statement stm = con.createStatement();
+
+            String sql = "select nome, usuario, telefone, email, sexo, cpf, senha from funcionario where id = '" + id + "'";
+
+            ResultSet rs = (ResultSet) stm.executeQuery(sql);
+
+            while (rs.next()) {
+                name = rs.getString("nome");
+                user = rs.getString("usuario");
+                phone = rs.getString("telefone");
+                mail = rs.getString("email");
+                sex = rs.getString("sexo");
+                CPF = rs.getString("cpf");
+                pass = rs.getString("senha");
+            }
+
+            nome.setText(name);
+            usuario.setText(user);
+            telefone.setText(phone);
+            email.setText(mail);
+            cpf.setText(CPF);
+            senha.setText(pass);
+            confirmacaoSenha.setText(pass);
+            if (sex.equals("Masculino")) {
+                masc.setSelected(true);
+            } else if (sex.equals("Feminino")) {
+                fem.setSelected(true);
+            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
     }
 
-    public void atualizar(String nome) {
-        System.out.println(nome);
+    //  MÉTODO PARA ATUALIZAR AS INFORMAÇÕES DE UM FUNCIONÁRIO NO BD PELO ID
+    public void updateFuncionario(int idFunc, String nome, String usuario, String senha,
+            String confirmacaoSenha, String telefone, String email, String sexo, String cpf) throws Exception {
+        
+        String name;
+        try {
+            //  busca e atualização de saldo na tabela ACAMPANTE
+            Connection con = new Conexao().getConnection();
 
-        // ATUALIZAR - MODELO
-        /*
-         try {
-         Connection con = new Conexao().getConnection();
-         Statement stm = con.createStatement();
-
-         String sql = "select valor from produto where nome='" + produto + "'";
-         //System.out.println(sql);
-         ResultSet rs = stm.executeQuery(sql);
-         while (rs.next()) {
-         double value = rs.getDouble("valor");
-
-         String inter = String.valueOf(value);
-         jTFValAtual.setText(inter);
-         }
-         } catch (SQLException ex) {
-         System.err.println(ex);
-
-         } catch (Exception ex) {
-         Logger.getLogger(telaAlterarProduto.class
-         .getName()).log(Level.SEVERE, null, ex);
-         }
-         
+            String update = "update funcionario set nome = '"+ nome +"', usuario = '"+ usuario +"', senha = '"+ senha +"', telefone = '"+ telefone +"', email = '"+ email +"', sexo = '"+ sexo +"', cpf = '"+ cpf +"' where id="+ idFunc +"";
+                    
+                    Statement stmt = con.prepareStatement(update);
+            int res = stmt.executeUpdate(update);
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
     }
+    
+    //  MÉTODO PARA DELETAR UM FUNCIONÁRIO DO BD PELO ID
+    public void deleteFuncionario(int id) throws Exception {
+        try {
+            Connection con = new Conexao().getConnection();
 
-    public void listar(javax.swing.JComboBox lid) {
-        lid.removeAllItems();
-        lid.addItem("------");
-
-        //  LISTAR _ MODELO
-        /*
-         try {
-         Connection con = new Conexao().getConnection();
-         Statement stm = con.createStatement();
-
-         String sql = "select nome from lideranca";
-
-         ResultSet rs = (ResultSet) stm.executeQuery(sql);
-
-         while (rs.next()) {
-         lid.addItem(rs.getString("nome"));
-         }
-
-         } catch (SQLException ex) {
-         System.err.println("Ocorreu um erro ao carregar o ComboBox");
-         } catch (Exception ex) {
-         Logger.getLogger(DepositoAcampante.class.getName()).log(Level.SEVERE, null, ex);
-         }
-         
+            String delete = "delete from funcionario where id='" + id + "'";
+            PreparedStatement stmt = con.prepareStatement(delete);
+            int res = stmt.executeUpdate(delete);
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
     }
-
-    public void pesquisar(javax.swing.JTextField pesq, javax.swing.JComboBox prod) {
-        prod.removeAllItems();
-        prod.addItem("------");
-
-        /*
-         String pesquisa;
-
-         pesquisa = (pesq.getText());
-
-         try {
-         Connection con = new Conexao().getConnection();
-         Statement stm = con.createStatement();
-
-         String sql = "select nome, quantidade, valor from produto where nome like '%" + pesquisa + "%'";
-
-         ResultSet rs = (ResultSet) stm.executeQuery(sql);
-
-         while (rs.next()) {
-         prod.addItem(rs.getString("nome"));
-         this.nome= rs.getString("nome");
-         this.valor= rs.getDouble("valor");
-         }
-
-         } catch (SQLException ex) {
-         System.err.println("Ocorreu um erro ao carregar o ComboBox");
-         } catch (Exception ex) {
-         Logger.getLogger(TelaCompra.class.getName()).log(Level.SEVERE, null, ex);
-         }
-         
+    
+    //  MÉTODO PARA VISUALIZAR TODOS OS FUNCIONÁRIOS EM FORMATO DE TABELA
+    public void visualizarFuncionarios(javax.swing.JTable func) throws Exception {
+        try {
+            Connection con = new database.Conexao().getConnection();
+            
+            String sql = "select id, nome, usuario, telefone, email, sexo, cpf from funcionario";
+            
+            PreparedStatement stmt = con.prepareStatement(sql);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            DefaultTableModel modelo = (DefaultTableModel) func.getModel();
+            modelo.setNumRows(0);
+            
+            while (rs.next()){
+                int id = rs.getInt("id");
+                String nome = rs.getString("nome");
+                String usuario = rs.getString("usuario");
+                String phone = rs.getString("telefone");
+                String mail = rs.getString("email");
+                String sex = rs.getString("sexo");
+                String CPF = rs.getString("cpf");
+                modelo.addRow(new Object[]{id,nome,usuario,phone,mail,sex, CPF});   
+            }
+        }catch(SQLException ex){
+            System.err.println(ex);
+        }
     }
-    */
-
-    /**
-     * Funções necessárias: -cadastrar -alterar -excluir -vizualizar
-     */
 }

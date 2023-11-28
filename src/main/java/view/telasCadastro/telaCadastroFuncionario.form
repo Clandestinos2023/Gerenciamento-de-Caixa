@@ -36,7 +36,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jBLimpar" linkSize="8" min="-2" pref="113" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                              <Component id="jBCad" linkSize="8" min="-2" pref="108" max="-2" attributes="0"/>
+                              <Component id="jBCadastrar" linkSize="8" min="-2" pref="108" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jPDadosPessoais" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -47,7 +47,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jBVoltar2" min="-2" pref="42" max="-2" attributes="0"/>
+                              <Component id="jBVoltar" min="-2" pref="51" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLCadUsers" max="32767" attributes="0"/>
                           </Group>
@@ -112,7 +112,7 @@
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="jBVoltar2" linkSize="9" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="jBVoltar" linkSize="9" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                       <Component id="jBImagem" max="32767" attributes="0"/>
                   </Group>
@@ -123,7 +123,7 @@
               <Component id="jPDadosPessoais" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jBCad" linkSize="7" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="jBCadastrar" linkSize="7" min="-2" pref="46" max="-2" attributes="0"/>
                   <Component id="jBLimpar" linkSize="7" min="-2" pref="55" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="21" max="32767" attributes="0"/>
@@ -167,12 +167,12 @@
         <Property name="text" type="java.lang.String" value="Confirmar senha"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jBCad">
+    <Component class="javax.swing.JButton" name="jBCadastrar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBCadActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBCadastrarActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="jPDadosPessoais">
@@ -400,7 +400,7 @@
         <Property name="text" type="java.lang.String" value="Imagem a ser adicionada"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jBVoltar2">
+    <Component class="javax.swing.JButton" name="jBVoltar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Courier New" size="18" style="1"/>
@@ -408,7 +408,7 @@
         <Property name="text" type="java.lang.String" value="&lt;"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBVoltar2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBVoltarActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

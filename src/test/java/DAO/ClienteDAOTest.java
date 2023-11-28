@@ -1,24 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
- */
 package DAO;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
+/**
+ * @author : Davidson Teixeira Filho
+ * @month : 11/2023
+ */
+
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import view.telasAlteracao.telaAlterarCliente;
 
-/**
- *
- * @author Davidson
- */
 public class ClienteDAOTest {
     
     /**
      * Test of cadastrar method, of class ClienteDAO.
+     * @throws java.lang.Exception
      */
     @Test
     public void testCadastrar() throws Exception {
@@ -34,19 +31,21 @@ public class ClienteDAOTest {
 
     /**
      * Test of getID method, of class ClienteDAO.
+     * @throws java.lang.Exception
      */
     @Test
     public void testGetID() throws Exception {
         System.out.println("getID");
-        String nome = "Abner";
+        String nome = "SSSSS";
         ClienteDAO instance = new ClienteDAO();
-        int expResult = 2;
+        int expResult = 3;
         int result = instance.getID(nome);
         assertEquals(expResult, result);
     }
 
     /**
      * Test of getIdade method, of class ClienteDAO.
+     * @throws java.lang.Exception
      */
     @Test
     public void testGetIdade() throws Exception {
@@ -60,6 +59,7 @@ public class ClienteDAOTest {
 
     /**
      * Test of getNome method, of class ClienteDAO.
+     * @throws java.lang.Exception
      */
     @Test
     public void testGetNome() throws Exception {
@@ -73,6 +73,7 @@ public class ClienteDAOTest {
 
     /**
      * Test of getTipoCliente method, of class ClienteDAO.
+     * @throws java.lang.Exception
      */
     @Test
     public void testGetTipoCliente() throws Exception {
@@ -86,6 +87,7 @@ public class ClienteDAOTest {
 
     /**
      * Test of getCodigoCliente method, of class ClienteDAO.
+     * @throws java.lang.Exception
      */
     @Test
     public void testGetCodigoCliente() throws Exception {
@@ -99,6 +101,7 @@ public class ClienteDAOTest {
 
     /**
      * Test of getContato method, of class ClienteDAO.
+     * @throws java.lang.Exception
      */
     @Test
     public void testGetContato() throws Exception {
@@ -109,5 +112,53 @@ public class ClienteDAOTest {
         String result = instance.getContato(id);
         assertEquals(expResult, result);
     }
+
+//    /**
+//     * Test of getCliente method, of class ClienteDAO.
+//     * @throws java.lang.Exception
+//     */
+//    @Test
+//    public void testGetCliente() throws Exception {
+//        System.out.println("getCliente");
+//        int id = 6;
+//        JTextField nome = telaAlterarCliente.nome;
+//        JTextField idade = telaAlterarCliente.idade;
+//        JRadioButton fis = telaAlterarCliente.fis;
+//        JRadioButton jur = telaAlterarCliente.jur;
+//        JTextField codigoCliente = telaAlterarCliente.codigoCliente;
+//        JTextField contato = telaAlterarCliente.contato;
+//        ClienteDAO instance = new ClienteDAO();
+//        instance.getCliente(id, nome, idade, fis, jur, codigoCliente, contato);
+//    }
+
+    /**
+     * Test of updateCliente method, of class ClienteDAO.
+     * @throws java.lang.Exception
+     */
+    @Test
+    public void testUpdateCliente() throws Exception {
+        System.out.println("updateCliente");
+        int id = 33;
+        String nome = "Julieta";
+        int idade = 15;
+        String tipoCliente = "Fisico";
+        String codigoCliente = "111.111.111-11";
+        String contato = "(15) 94002-8922";
+        ClienteDAO instance = new ClienteDAO();
+        instance.updateCliente(id, nome, idade, tipoCliente, codigoCliente, contato);
+    }
+
+    /**
+     * Test of deleteCliente method, of class ClienteDAO.
+     * @throws java.lang.Exception
+     */
+    @Test
+    public void testDeleteCliente() throws Exception {
+        System.out.println("deleteCliente");
+        int id = 41;
+        ClienteDAO instance = new ClienteDAO();
+        instance.deleteCliente(id);
+    }
+
     
 }

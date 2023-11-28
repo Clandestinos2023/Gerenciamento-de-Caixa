@@ -1,8 +1,8 @@
 package database;
 
 /**
- * @author: Davidson Teixeira Filho
- * @date: 03/01/2023
+ * @author : Davidson Teixeira Filho
+ * @month : 11/2023
  */
 
 import java.sql.Connection;

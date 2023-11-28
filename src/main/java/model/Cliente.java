@@ -1,30 +1,63 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
+/**
+ * @author : Davidson Teixeira Filho
+ * @month : 11/2023
+ */
 import DAO.ClienteDAO;
 
-/**
- *
- * @author Davidson
- */
 public class Cliente {
 
-    /**
-     * Funções necessárias: -cadastrar -alterar -excluir -vizualizar
-     */
     private int id;
     private String nome;
     private int idade;
     private String codCliente;
     private String tipoCliente;
     private String contato;
-    
+
     ClienteDAO dao = new ClienteDAO();
 
+    // SETTERS
+    public void setID(int ID) {
+        this.id = ID;
+    }
+    public void setNome(String name) {
+        this.nome = name;
+    }
+    public void setIdade(int age) {
+        this.idade = age;
+    }
+    public void setCodCliente(String codeCli) {
+        this.codCliente = codeCli;
+    }
+    public void setTipoCliente(String typeCli) {
+        this.tipoCliente = typeCli;
+    }
+    public void setContato(String phone) {
+        this.contato = phone;
+    }
+    
+    // GETTERS
+    public int getID() {
+        return this.id;
+    }
+    public String setNome() {
+        return this.nome;
+    }
+    public int setIdade() {
+        return this.idade;
+    }
+    public String setCodCliente() {
+        return this.codCliente;
+    }
+    public String setTipoCliente() {
+        return this.tipoCliente;
+    }
+    public String setContato() {
+        return this.contato;
+    }
+
+    //  MÉTODO PARA CRIAÇÃO DE UM OBJETO COM AS INFORMAÇÕES DO CLIENTE
     public void cadastrar(String name, int age, String typeCliente, String codigo, String telefone) throws Exception {
         this.nome = name;
         this.idade = age;
@@ -33,25 +66,6 @@ public class Cliente {
         this.contato = telefone;
 
         dao.cadastrar(name, age, typeCliente, codigo, telefone);
-
     }
-
-    /*
-    public void editar(String nome) throws Exception {
-        //dao.getID(nome);
-    }
-
-    public void excluir(String nome) {
-        System.out.println(nome);
-    }
-
-    public void vizualizar(String nome) {
-        System.out.println(nome);
-    }
-
-    public void cadastrar(String hugo, int i) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    */
 
 }

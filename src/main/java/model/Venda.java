@@ -1,16 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
+
+/**
+ * @author : Davidson Teixeira Filho
+ * @month : 11/2023
+ */
 
 import DAO.VendaDAO;
 
-/**
- *
- * @author Davidson
- */
 public class Venda {
     
     private int id;
@@ -20,6 +16,35 @@ public class Venda {
     
     VendaDAO dao = new VendaDAO();
     
+    //  SETTERS
+    public void setID(int id) {
+        this.id = id;
+    }
+    public void setIDCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
+    public void setValorCompra(double valorTotal) {
+        this.valorCompra = valorTotal;
+    }
+    public void setDescricao(String desc) {
+        this.descricao = desc;
+    }
+    
+    //  GETTERS
+    public int getID() {
+        return this.id;
+    }
+    public int getIDCliente() {
+        return this.idCliente;
+    }
+    public double getValorCompra() {
+        return this.valorCompra;
+    }
+    public String getDescricao() {
+        return this.descricao;
+    }
+    
+    //  MÉTODO PARA CRIAÇÃO DE UM OBJETO COM AS INFORMAÇÕES DA VENDA
     public void cadastrar(int idCliente,double valorCompra, String descricao) {
         this.idCliente = idCliente;
         this.valorCompra = valorCompra;
@@ -27,24 +52,5 @@ public class Venda {
         
         dao.cadastrar(idCliente, valorCompra, descricao);
     }
-    
-    public void editar(String nome) {
-        System.out.println(nome);
-    }
-    
-    public void excluir(String nome) {
-        System.out.println(nome);
-    }
-    
-    public void vizualizar(String nome) {
-        System.out.println(nome);
-    }
-    /**
-     * Funções necessárias:
-     * -cadastrar
-     * -alterar
-     * -excluir
-     * -vizualizar
-    */
     
 }

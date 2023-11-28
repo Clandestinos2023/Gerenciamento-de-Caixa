@@ -1,9 +1,14 @@
 model\VendaTest.class
-DAO\VendaDAOTest.class
+controller\ClienteControllerTest.class
 DAO\FuncionarioDAOTest.class
+controller\ProdutoControllerTest.class
+DAO\VendaDAOTest.class
 model\ProdutoTest.class
+database\ConexaoTest.class
 model\FuncionarioTest.class
+controller\FuncionarioControllerTest.class
 SuiteTest.class
 DAO\ClienteDAOTest.class
+controller\VendaControllerTest.class
 DAO\ProdutoDAOTest.class
 model\ClienteTest.class

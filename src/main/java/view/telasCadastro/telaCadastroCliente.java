@@ -14,9 +14,7 @@ import view.telaPrincipal;
 public class telaCadastroCliente extends javax.swing.JFrame {
 
     public telaCadastroCliente() {
-        setTitle("Cadastro de Cliente");
         initComponents();
-        
     }
 
     @SuppressWarnings("unchecked")
@@ -134,8 +132,8 @@ public class telaCadastroCliente extends javax.swing.JFrame {
                         .addGap(69, 69, 69))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jBVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
@@ -190,7 +188,7 @@ public class telaCadastroCliente extends javax.swing.JFrame {
         bGTipoCliente.clearSelection();
     }//GEN-LAST:event_jBLimparCadActionPerformed
 
-    //  BOTÃO QUE CADASTRA O ACAMPANTE
+    //  BOTÃO QUE CADASTRA O CLIENTE
     private void jBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadastrarActionPerformed
         Integer age;
         String name, telefone, codigo, typeCliente = null;
@@ -216,7 +214,7 @@ public class telaCadastroCliente extends javax.swing.JFrame {
        
             JOptionPane.showMessageDialog(jLExib, "Cliente cadastrado com sucesso!");
 
-            jBLimparCadActionPerformed(evt);
+            jBVoltarActionPerformed(evt);
         } catch (Exception ex) {
             Logger.getLogger(telaCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(jLExib, "Deu errado!");
@@ -224,58 +222,14 @@ public class telaCadastroCliente extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jBCadastrarActionPerformed
 
+    //  BOTÃO QUE VOLTA PARA A TELA PRINCIPAL DO SISTEMA
     private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
         telaPrincipal set = new telaPrincipal();
         set.setVisible(true);
         dispose();
     }//GEN-LAST:event_jBVoltarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(telaCadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new telaCadastroCliente().setVisible(true);
         });

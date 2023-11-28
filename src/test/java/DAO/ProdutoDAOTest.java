@@ -1,20 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
- */
 package DAO;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
+/**
+ * @author : Davidson Teixeira Filho
+ * @month : 11/2023
+ */
+
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import view.telaVenda;
+import view.telasAlteracao.telaAlterarProduto;
 
-/**
- *
- * @author Davidson
- */
 public class ProdutoDAOTest {
 
     /**
@@ -32,6 +29,7 @@ public class ProdutoDAOTest {
 
     /**
      * Test of getID method, of class ProdutoDAO.
+     * @throws java.lang.Exception
      */
     @Test
     public void testGetID() throws Exception {
@@ -45,6 +43,7 @@ public class ProdutoDAOTest {
 
     /**
      * Test of getQuantidade method, of class ProdutoDAO.
+     * @throws java.lang.Exception
      */
     @Test
     public void testGetQuantidade() throws Exception {
@@ -58,6 +57,7 @@ public class ProdutoDAOTest {
 
     /**
      * Test of getNome method, of class ProdutoDAO.
+     * @throws java.lang.Exception
      */
     @Test
     public void testGetNome() throws Exception {
@@ -71,6 +71,7 @@ public class ProdutoDAOTest {
 
     /**
      * Test of getValor method, of class ProdutoDAO.
+     * @throws java.lang.Exception
      */
     @Test
     public void testGetValor() throws Exception {
@@ -81,5 +82,74 @@ public class ProdutoDAOTest {
         double result = instance.getValor(id);
         assertEquals(expResult, result, 0);
     }
+//
+//    /**
+//     * Test of getProduto method, of class ProdutoDAO.
+//     * @throws java.lang.Exception
+//     */
+//    @Test
+//    public void testGetProduto() throws Exception {
+//        System.out.println("getProduto");
+//        int id = 0;
+//        JTextField valor = telaAlterarProduto.value;
+//        JTextField nome = telaAlterarProduto.nome;
+//        JTextField ID = telaAlterarProduto.id;
+//        ProdutoDAO instance = new ProdutoDAO();
+//        instance.getProduto(id, valor, nome, ID);
+//    }
+//
+//    /**
+//     * Test of getProdutoQuant method, of class ProdutoDAO.
+//     * @throws java.lang.Exception
+//     */
+//    @Test
+//    public void testGetProdutoQuant() throws Exception {
+//        System.out.println("getProdutoQuant");
+//        int id = 0;
+//        JComboBox qnt = telaVenda.qnt;
+//        JTextField valor = telaAlterarProduto.value;
+//        JTextField nome = telaAlterarProduto.nome;
+//        JTextField ID = telaAlterarProduto.id;
+//        ProdutoDAO instance = new ProdutoDAO();
+//        instance.getProdutoQuant(id, qnt, valor, nome, ID);
+//    }
+
+    /**
+     * Test of updateProdutoInfos method, of class ProdutoDAO.
+     * @throws java.lang.Exception
+     */
+    @Test
+    public void testUpdateProdutoInfos() throws Exception {
+        System.out.println("updateProdutoInfos");
+        String nome = "Olhe";
+        double valor = 8.64;
+        int id = 19;
+        ProdutoDAO instance = new ProdutoDAO();
+        instance.updateProdutoInfos(nome, valor, id);
+    }
+
+    /**
+     * Test of deleteProduto method, of class ProdutoDAO.
+     * @throws java.lang.Exception
+     */
+    @Test
+    public void testDeleteProduto() throws Exception {
+        System.out.println("deleteProduto");
+        int id = 28;
+        ProdutoDAO instance = new ProdutoDAO();
+        instance.deleteProduto(id);
+    }
+
+//    /**
+//     * Test of contarQuantidade method, of class ProdutoDAO.
+//     */
+//    @Test
+//    public void testContarQuantidade() {
+//        System.out.println("contarQuantidade");
+//        int qnt = 20;
+//        JComboBox quant = telaVenda.qnt;
+//        ProdutoDAO instance = new ProdutoDAO();
+//        instance.contarQuantidade(qnt, quant);
+//    }
 
 }
