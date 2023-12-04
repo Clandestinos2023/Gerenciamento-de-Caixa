@@ -1,9 +1,27 @@
-package view;
-
-/**
- * @author : Davidson Teixeira Filho
- * @month : 11/2023
+/*
+ * The MIT License
+ *
+ * Copyright 2023 Davidson Teixeira Filho.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
+package view;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,6 +39,13 @@ import view.telasExibicao.telaVisualizarFuncionarios;
 import view.telasExibicao.telaVisualizarProdutos;
 import view.telasExibicao.telaVisualizarVendas;
 
+/**
+ *
+ * @author Davidson
+ * @since 11/2023
+ *
+ * View - tela principal
+ */
 public class telaPrincipal extends javax.swing.JFrame {
 
     public telaPrincipal() {
@@ -211,35 +236,55 @@ public class telaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //  ITEM DE MENU QUE REDIRECIONA PARA A TELA DE CADASTRO DO FUNCIONÁRIO
+    /**
+     * Item de menu que redireciona para a tela de cadastro do funcionário
+     *
+     * @param evt
+     */
     private void jMICadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICadastrarFuncionarioActionPerformed
         telaCadastroFuncionario screen = new telaCadastroFuncionario();
         screen.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMICadastrarFuncionarioActionPerformed
 
-    //  ITEM DE MENU QUE REDIRECIONA PARA A TELA DE CADASTRO DE PRODUTO
+    /**
+     * Item de menu que redireciona para a tela de cadastro do produto
+     *
+     * @param evt
+     */
     private void jMICadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICadastrarProdutoActionPerformed
         telaCadastroProduto screen = new telaCadastroProduto();
         screen.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMICadastrarProdutoActionPerformed
 
-    //  ITEM DE MENU QUE REDIRECIONA PARA A TELA DE CADASTRO DE CLIENTE
+    /**
+     * Item de menu que redireciona para a tela de cadastro do cliente
+     *
+     * @param evt
+     */
     private void jMICadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICadastrarClienteActionPerformed
         telaCadastroCliente screen = new telaCadastroCliente();
         screen.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMICadastrarClienteActionPerformed
 
-    //  ITEM DE MENU QUE REDIRECIONA PARA A TELA DE LOGIN, EFETUANDO O LOGOUT
+    /**
+     * Item de menu que redireciona para a tela de login, efetuando o logout
+     *
+     * @param evt
+     */
     private void jMILogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMILogoutActionPerformed
         telaLogin screen = new telaLogin();
         screen.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMILogoutActionPerformed
 
-    //  ITEM DE MENU QUE REDIRECIONA PARA A TELA DE VENDA
+    /**
+     * Item de menu que redireciona para a tela de venda
+     *
+     * @param evt
+     */
     private void jMIEfetuarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIEfetuarVendaActionPerformed
         telaVenda screen;
         try {
@@ -251,7 +296,11 @@ public class telaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMIEfetuarVendaActionPerformed
 
-    //  ITEM DE MENU QUE REDIRECIONA PARA A TELA DE ALTERAÇÃO DE CLIENTE
+    /**
+     * Item de menu que redireciona para a tela de alteração do cliente
+     *
+     * @param evt
+     */
     private void jMIAlterarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIAlterarClienteActionPerformed
         telaAlterarCliente screen;
         try {
@@ -263,7 +312,11 @@ public class telaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMIAlterarClienteActionPerformed
 
-    //  ITEM DE MENU QUE REDIRECIONA PARA A TELA DE ALTERAÇÃO DE PRODUTO
+    /**
+     * Item de menu que redireciona para a tela de alteração do produto
+     *
+     * @param evt
+     */
     private void jMIAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIAlterarProdutoActionPerformed
         telaAlterarProduto screen;
         try {
@@ -275,7 +328,11 @@ public class telaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMIAlterarProdutoActionPerformed
 
-    //  ITEM DE MENU QUE REDIRECIONA PARA A TELA DE DELETAR CLIENTE
+    /**
+     * Item de menu que redireciona para a tela de deletar cliente
+     *
+     * @param evt
+     */
     private void jMIDeleteClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIDeleteClienteActionPerformed
         telaDeletarCliente screen;
         try {
@@ -287,7 +344,11 @@ public class telaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMIDeleteClienteActionPerformed
 
-    //  ITEM DE MENU QUE REDIRECIONA PARA A TELA DE DELETAR FUNCIONÁRIO
+    /**
+     * Item de menu que redireciona para a tela de deletar funcionário
+     *
+     * @param evt
+     */
     private void jMIDeleteFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIDeleteFuncionarioActionPerformed
         telaDeletarFuncionario screen;
         try {
@@ -299,7 +360,11 @@ public class telaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMIDeleteFuncionarioActionPerformed
 
-    //  ITEM DE MENU QUE REDIRECIONA PARA A TELA DE DELETAR PRODUTO
+    /**
+     * Item de menu que redireciona para a tela de deletar produto
+     *
+     * @param evt
+     */
     private void jMIDeleteProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIDeleteProdutoActionPerformed
         telaDeletarProduto screen;
         try {
@@ -311,7 +376,11 @@ public class telaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMIDeleteProdutoActionPerformed
 
-    //  ITEM DE MENU QUE REDIRECIONA PARA A TELA DE ALTERAÇÃO DE FUNCIONÁRIO
+    /**
+     * Item de menu que redireciona para a tela de alteração do funcionário
+     *
+     * @param evt
+     */
     private void jMIAlterarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIAlterarFuncionarioActionPerformed
         telaAlterarFuncionario screen;
         try {
@@ -323,6 +392,11 @@ public class telaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMIAlterarFuncionarioActionPerformed
 
+    /**
+     * Item de menu que redireciona para a tela de visualizar clientes
+     *
+     * @param evt
+     */
     private void jMIVisualizarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIVisualizarClientesActionPerformed
         telaVisualizarClientes screen;
         try {
@@ -334,6 +408,11 @@ public class telaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMIVisualizarClientesActionPerformed
 
+    /**
+     * Item de menu que redireciona para a tela de visualizar funcionários
+     *
+     * @param evt
+     */
     private void jMIVisualizarFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIVisualizarFuncionariosActionPerformed
         telaVisualizarFuncionarios screen;
         try {
@@ -345,6 +424,11 @@ public class telaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMIVisualizarFuncionariosActionPerformed
 
+    /**
+     * Item de menu que redireciona para a tela de visualizar produtos
+     *
+     * @param evt
+     */
     private void jMIVisualizarProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIVisualizarProdutosActionPerformed
         telaVisualizarProdutos screen;
         try {
@@ -356,6 +440,11 @@ public class telaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMIVisualizarProdutosActionPerformed
 
+    /**
+     * Item de menu que redireciona para a tela de visualizar vendas
+     *
+     * @param evt
+     */
     private void jMIVisualizarVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIVisualizarVendasActionPerformed
         telaVisualizarVendas screen;
         try {
@@ -367,6 +456,11 @@ public class telaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMIVisualizarVendasActionPerformed
 
+    /**
+     * Método que inicializa a tela principal
+     *
+     * @param args
+     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             new telaPrincipal().setVisible(true);

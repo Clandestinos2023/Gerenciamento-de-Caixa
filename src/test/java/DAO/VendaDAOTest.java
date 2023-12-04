@@ -6,11 +6,39 @@ package DAO;
  */
 
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import view.telasExibicao.telaVisualizarVendas;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
 public class VendaDAOTest {
+    
+    public static JTable table;
+
+    @BeforeAll
+    public static void setUpClass() throws Exception {
+        table = new JTable();
+        table.setModel(new DefaultTableModel(
+                new Object[][]{},
+                //TITULOS DAS SUAS COLUNAS
+                new String[]{"Hora", "ID", "ID do Cliente", "Valor Total", "Descrição"}) {
+        });
+    }
+
+    @AfterAll
+    public static void tearDownClass() throws Exception {
+    }
+
+    @BeforeEach
+    public void setUp() throws Exception {
+    }
+
+    @AfterEach
+    public void tearDown() throws Exception {
+    }
 
     /**
      * Test of cadastrar method, of class VendaDAO.
@@ -67,16 +95,16 @@ public class VendaDAOTest {
         assertEquals(expResult, result);
     }
 
-//    /**
-//     * Test of visualizarVendas method, of class VendaDAO.
-//     * @throws java.lang.Exception
-//     */
-//    @Test
-//    public void testVisualizarVendas() throws Exception {
-//        System.out.println("visualizarVendas");
-//        JTable vend = telaVisualizarVendas.vendas;
-//        VendaDAO instance = new VendaDAO();
-//        instance.visualizarVendas(vend);
-//    }
+    /**
+     * Test of visualizarVendas method, of class VendaDAO.
+     * @throws java.lang.Exception
+     */
+    @Test
+    public void testVisualizarVendas() throws Exception {
+        System.out.println("visualizarVendas");
+        JTable vend = table;
+        VendaDAO instance = new VendaDAO();
+        instance.visualizarVendas(vend);
+    }
     
 }

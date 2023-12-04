@@ -1,9 +1,27 @@
-package DAO;
-
-/**
- * @author : Davidson Teixeira Filho
- * @month : 11/2023
+/*
+ * The MIT License
+ *
+ * Copyright 2023 Davidson Teixeira Filho.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
+package DAO;
 
 import database.Conexao;
 import java.sql.Connection;
@@ -13,9 +31,28 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ *
+ * @author Davidson
+ * @since 11/2023
+ *
+ * Classe para manipulação de banco de dados - tabela: funcionario
+ */
 public class FuncionarioDAO {
 
-    //  MÉTODO PARA CADASTRAR O FUNCIONÁRIO NO BD
+    /**
+     * Método para cadastrar o funcionário no BD
+     *
+     * @param nome
+     * @param usuario
+     * @param senha
+     * @param confirmacaoSenha
+     * @param telefone
+     * @param email
+     * @param sexo
+     * @param cpf
+     * @throws Exception
+     */
     public void cadastrar(String nome, String usuario, String senha, String confirmacaoSenha,
             String telefone, String email, String sexo, String cpf) throws Exception {
 
@@ -25,19 +62,17 @@ public class FuncionarioDAO {
             Connection con = new Conexao().getConnection();
             System.out.println("Connection established!");
 
-            PreparedStatement stmt = con.prepareStatement(insert);
+            try (PreparedStatement stmt = con.prepareStatement(insert)) {
+                stmt.setString(1, nome);
+                stmt.setString(2, usuario);
+                stmt.setString(3, senha);
+                stmt.setString(4, telefone);
+                stmt.setString(5, email);
+                stmt.setString(6, sexo);
+                stmt.setString(7, cpf);
 
-            stmt.setString(1, nome);
-            stmt.setString(2, usuario);
-            stmt.setString(3, senha);
-            stmt.setString(4, telefone);
-            stmt.setString(5, email);
-            stmt.setString(6, sexo);
-            stmt.setString(7, cpf);
-
-            stmt.executeUpdate();
-
-            stmt.close();
+                stmt.executeUpdate();
+            }
             System.out.println("Connection closed!");
 
         } catch (SQLException ex) {
@@ -45,7 +80,13 @@ public class FuncionarioDAO {
         }
     }
 
-    //  MÉTODO PARA BUSCAR O ID DO FUNCIONÁRIO
+    /**
+     * Método para buscar o ID do funcionário
+     *
+     * @param nome
+     * @return id
+     * @throws Exception
+     */
     public int getID(String nome) throws Exception {
         int id = 0;
         try {
@@ -67,8 +108,14 @@ public class FuncionarioDAO {
         }
         return id;
     }
-    
-    //  MÉTODO PARA BUSCAR O NOME DO FUNCIONÁRIO
+
+    /**
+     * Método para buscar o nome do funcionário
+     *
+     * @param id
+     * @return nome
+     * @throws Exception
+     */
     public String getNome(int id) throws Exception {
         String nome = null;
         try {
@@ -90,8 +137,14 @@ public class FuncionarioDAO {
         }
         return nome;
     }
-    
-    //  MÉTODO PARA BUSCAR O USUÁRIO DO FUNCIONÁRIO
+
+    /**
+     * Método para buscar o usuário do funcionário
+     *
+     * @param id
+     * @return usuario
+     * @throws Exception
+     */
     public String getUsuario(int id) throws Exception {
         String usuario = null;
         try {
@@ -113,8 +166,14 @@ public class FuncionarioDAO {
         }
         return usuario;
     }
-    
-    //  MÉTODO PARA BUSCAR A SENHA DO FUNCIONÁRIO
+
+    /**
+     * Método para buscar a senha do funcionário
+     *
+     * @param id
+     * @return senha
+     * @throws Exception
+     */
     public String getSenha(int id) throws Exception {
         String senha = null;
         try {
@@ -137,7 +196,13 @@ public class FuncionarioDAO {
         return senha;
     }
 
-    //  MÉTODO PARA BUSCAR O TELEFONE DO FUNCIONÁRIO
+    /**
+     * Método para busccar o tetlefone do funcionário
+     *
+     * @param id
+     * @return telefone
+     * @throws Exception
+     */
     public String getTelefone(int id) throws Exception {
         String telefone = null;
         try {
@@ -159,8 +224,14 @@ public class FuncionarioDAO {
         }
         return telefone;
     }
-    
-    //  MÉTODO PARA BUSCAR O EMAIL DO FUNCIONÁRIO
+
+    /**
+     * Método para buscar o email do funcionário
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public String getEmail(int id) throws Exception {
         String email = null;
         try {
@@ -182,8 +253,14 @@ public class FuncionarioDAO {
         }
         return email;
     }
-    
-    //  MÉTODO PARA BUSCAR O SEXO DO FUNCIONÁRIO
+
+    /**
+     * Método para buscar o sexo do funcionário
+     *
+     * @param id
+     * @return sexo
+     * @throws Exception
+     */
     public String getSexo(int id) throws Exception {
         String sexo = null;
         try {
@@ -205,9 +282,15 @@ public class FuncionarioDAO {
         }
         return sexo;
     }
-    
-    //  MÉTODO PARA BUSCAR O CPF DO FUNCIONÁRIO
-    public String getCPF (int id) throws Exception {
+
+    /**
+     * Método para buscar o cpf do funcionario
+     *
+     * @param id
+     * @return cpf
+     * @throws Exception
+     */
+    public String getCPF(int id) throws Exception {
         String cpf = null;
         try {
             Connection con = new database.Conexao().getConnection();
@@ -228,11 +311,16 @@ public class FuncionarioDAO {
         }
         return cpf;
     }
-    
-    //  MÉTODO PARA LISTAR TODOS OS NOMES DOS FUNCIONÁRIOS
-    public void listarFuncionario(javax.swing.JComboBox func) throws Exception {
-        func.removeAllItems();
-        func.addItem("------");
+
+    /**
+     * Método para listar todos os nomes dos funcionários
+     *
+     * @param funcionarios
+     * @throws Exception
+     */
+    public void listarFuncionario(javax.swing.JComboBox funcionarios) throws Exception {
+        funcionarios.removeAllItems();
+        funcionarios.addItem("------");
 
         try {
             Connection con = new Conexao().getConnection();
@@ -243,7 +331,7 @@ public class FuncionarioDAO {
             ResultSet rs = (ResultSet) stm.executeQuery(sql);
 
             while (rs.next()) {
-                func.addItem(rs.getString("nome"));
+                funcionarios.addItem(rs.getString("nome"));
             }
 
         } catch (SQLException ex) {
@@ -252,10 +340,17 @@ public class FuncionarioDAO {
 
     }
 
-    //  MÉTODO PARA LISTAR TODOS OS NOMES DE FUNCIONÁRIOS QUE SÃO PARECIDOS COM O PASSADO
-    public void pesquisarFuncionario(String pesquisa, javax.swing.JComboBox func) throws Exception {
-        func.removeAllItems();
-        func.addItem("------");
+    /**
+     * Método para listar todos os nomes de funcionários que possuem a String
+     * passada
+     *
+     * @param pesquisa
+     * @param funcionarios
+     * @throws Exception
+     */
+    public void pesquisarFuncionario(String pesquisa, javax.swing.JComboBox funcionarios) throws Exception {
+        funcionarios.removeAllItems();
+        funcionarios.addItem("------");
 
         try {
             Connection con = new Conexao().getConnection();
@@ -266,7 +361,7 @@ public class FuncionarioDAO {
             ResultSet rs = (ResultSet) stm.executeQuery(sql);
 
             while (rs.next()) {
-                func.addItem(rs.getString("nome"));
+                funcionarios.addItem(rs.getString("nome"));
             }
 
         } catch (SQLException ex) {
@@ -275,11 +370,26 @@ public class FuncionarioDAO {
 
     }
 
-    //  MÉTODO PARA BUSCAR AS INFORMAÇÕES DE UM FUNCIONÁRIO E SETAR AS INFORMAÇÕES NA VIEW
+    /**
+     * Método para buscar as informações de um funcionário e setar as
+     * informações na view
+     *
+     * @param id
+     * @param nome
+     * @param usuario
+     * @param senha
+     * @param confirmacaoSenha
+     * @param telefone
+     * @param email
+     * @param masc
+     * @param fem
+     * @param cpf
+     * @throws Exception
+     */
     public void getFuncionario(int id, javax.swing.JTextField nome, javax.swing.JTextField usuario, javax.swing.JTextField senha,
-            javax.swing.JTextField confirmacaoSenha, javax.swing.JTextField telefone, javax.swing.JTextField email, javax.swing.JRadioButton masc, 
+            javax.swing.JTextField confirmacaoSenha, javax.swing.JTextField telefone, javax.swing.JTextField email, javax.swing.JRadioButton masc,
             javax.swing.JRadioButton fem, javax.swing.JTextField cpf) throws Exception {
-        
+
         String name = "", user = "", phone = "", mail = "", sex = "", CPF = "", pass = "";
 
         try {
@@ -309,7 +419,7 @@ public class FuncionarioDAO {
             confirmacaoSenha.setText(pass);
             if (sex.equals("Masculino")) {
                 masc.setSelected(true);
-            } else if (sex.equals("Feminino")) {
+            } else {
                 fem.setSelected(true);
             }
 
@@ -318,25 +428,41 @@ public class FuncionarioDAO {
         }
     }
 
-    //  MÉTODO PARA ATUALIZAR AS INFORMAÇÕES DE UM FUNCIONÁRIO NO BD PELO ID
+    /**
+     * Método para atualizar as informações de um funcionário no BD pelo ID
+     *
+     * @param idFunc
+     * @param nome
+     * @param usuario
+     * @param senha
+     * @param confirmacaoSenha
+     * @param telefone
+     * @param email
+     * @param sexo
+     * @param cpf
+     * @throws Exception
+     */
     public void updateFuncionario(int idFunc, String nome, String usuario, String senha,
             String confirmacaoSenha, String telefone, String email, String sexo, String cpf) throws Exception {
-        
-        String name;
+
         try {
-            //  busca e atualização de saldo na tabela ACAMPANTE
             Connection con = new Conexao().getConnection();
 
-            String update = "update funcionario set nome = '"+ nome +"', usuario = '"+ usuario +"', senha = '"+ senha +"', telefone = '"+ telefone +"', email = '"+ email +"', sexo = '"+ sexo +"', cpf = '"+ cpf +"' where id="+ idFunc +"";
-                    
-                    Statement stmt = con.prepareStatement(update);
-            int res = stmt.executeUpdate(update);
+            String update = "update funcionario set nome = '" + nome + "', usuario = '" + usuario + "', senha = '" + senha + "', telefone = '" + telefone + "', email = '" + email + "', sexo = '" + sexo + "', cpf = '" + cpf + "' where id=" + idFunc + "";
+
+            Statement stmt = con.prepareStatement(update);
+            stmt.executeUpdate(update);
         } catch (SQLException ex) {
             System.err.println(ex);
         }
     }
-    
-    //  MÉTODO PARA DELETAR UM FUNCIONÁRIO DO BD PELO ID
+
+    /**
+     * Método para deletar um funcionário no BD pelo ID
+     *
+     * @param id
+     * @throws Exception
+     */
     public void deleteFuncionario(int id) throws Exception {
         try {
             Connection con = new Conexao().getConnection();
@@ -348,22 +474,27 @@ public class FuncionarioDAO {
             System.err.println(ex);
         }
     }
-    
-    //  MÉTODO PARA VISUALIZAR TODOS OS FUNCIONÁRIOS EM FORMATO DE TABELA
-    public void visualizarFuncionarios(javax.swing.JTable func) throws Exception {
+
+    /**
+     * Método para visualizar todos os funcionários em formato de tabela
+     *
+     * @param funcionarios
+     * @throws Exception
+     */
+    public void visualizarFuncionarios(javax.swing.JTable funcionarios) throws Exception {
         try {
             Connection con = new database.Conexao().getConnection();
-            
+
             String sql = "select id, nome, usuario, telefone, email, sexo, cpf from funcionario";
-            
+
             PreparedStatement stmt = con.prepareStatement(sql);
-            
+
             ResultSet rs = stmt.executeQuery();
-            
-            DefaultTableModel modelo = (DefaultTableModel) func.getModel();
+
+            DefaultTableModel modelo = (DefaultTableModel) funcionarios.getModel();
             modelo.setNumRows(0);
-            
-            while (rs.next()){
+
+            while (rs.next()) {
                 int id = rs.getInt("id");
                 String nome = rs.getString("nome");
                 String usuario = rs.getString("usuario");
@@ -371,9 +502,9 @@ public class FuncionarioDAO {
                 String mail = rs.getString("email");
                 String sex = rs.getString("sexo");
                 String CPF = rs.getString("cpf");
-                modelo.addRow(new Object[]{id,nome,usuario,phone,mail,sex, CPF});   
+                modelo.addRow(new Object[]{id, nome, usuario, phone, mail, sex, CPF});
             }
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
             System.err.println(ex);
         }
     }

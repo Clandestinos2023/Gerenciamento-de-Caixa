@@ -1,36 +1,57 @@
-package view.telasAlteracao;
-
-/**
- * @author : Davidson Teixeira Filho
- * @month : 11/2023
+/*
+ * The MIT License
+ *
+ * Copyright 2023 Davidson Teixeira Filho.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
+package view.telasAlteracao;
 
 import DAO.ProdutoDAO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import view.telaPrincipal;
 
+/**
+ *
+ * @author Davidson
+ * @since 11/2023
+ *
+ * View - tela de alteração de produto
+ */
 public class telaAlterarProduto extends javax.swing.JFrame {
 
+    /**
+     * Objeto referente a classe ProdutoDAO a qual possui manipulação do Banco
+     * de Dados
+     */
     ProdutoDAO proddao = new ProdutoDAO();
-    
-    public static JComboBox prod;
-    public static JTextField id;
-    public static JTextField value;
-    public static JTextField nome;
 
+    /**
+     * Método que inicializa os componentes da view
+     *
+     * @throws Exception
+     */
     public telaAlterarProduto() throws Exception {
         initComponents();
         proddao.listarProduto(jCBProdutos);
-        
-        prod = jCBProdutos;
-        id = jTFID;
-        value = jTFValorAtual;
-        nome = jTFNome;
-        
     }
 
     @SuppressWarnings("unchecked")
@@ -207,7 +228,12 @@ public class telaAlterarProduto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //  BOTÃO QUE PESQUISA PRODUTOS NO BD COM INFORMAÇÕES DO jTextField
+    /**
+     * Botão que pesquisa produtos no BD com informações do jTextField
+     *
+     * @param evt
+     */
+
     private void jBPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPesquisarActionPerformed
         String pesquisa;
 
@@ -219,24 +245,34 @@ public class telaAlterarProduto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBPesquisarActionPerformed
 
-    //  PESQUISA PRODUTOS NO BD ATRAVÉS DE UM jTextField
+    /**
+     * Pesquisa de produtos no BD através de um jTextField
+     *
+     * @param evt
+     */
+
     private void jTFPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFPesquisarActionPerformed
         jBPesquisarActionPerformed(evt);
     }//GEN-LAST:event_jTFPesquisarActionPerformed
 
-    //  BOTÃO QUE EFETUA A ATUALIZAÇÃO DO PRODUTO NO BD E ATUALIZA A PÁGINA
+    /**
+     * Botão que efetua a alteração do produto no BD e atualiza a tela
+     *
+     * @param evt
+     */
+
     private void jBAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAlterarActionPerformed
-        String nome = null, name;
+        String nome = null, nomeProd;
         double valor;
         int id;
 
         nome = jTFNome.getText();
         valor = Double.parseDouble(jTFValorNovo.getText());
 
-        name = jCBProdutos.getSelectedItem().toString();
+        nomeProd = jCBProdutos.getSelectedItem().toString();
 
         try {
-            id = proddao.getID(name);
+            id = proddao.getID(nomeProd);
             proddao.updateProdutoInfos(nome, valor, id);
 
             JOptionPane.showMessageDialog(jLExib, "Produto alterado com sucesso!");
@@ -250,28 +286,43 @@ public class telaAlterarProduto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBAlterarActionPerformed
 
-    //  BOTÃO QUE AO SER CLICADO ATUALIZA AS INFORMAÇÕES DO PRODUTO
+    /**
+     * Botão que ao ser clicado atualiza as informações do produto
+     *
+     * @param evt
+     */
+
     private void jBAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAtualizarActionPerformed
         String nomeID;
-        int id;
+        int ID;
 
         nomeID = jCBProdutos.getSelectedItem().toString();
 
         try {
-            id = proddao.getID(nomeID);
-            proddao.getProduto(id, jTFValorAtual, jTFNome, jTFID);
+            ID = proddao.getID(nomeID);
+            proddao.getProduto(ID, jTFValorAtual, jTFNome, jTFID);
         } catch (Exception ex) {
             Logger.getLogger(telaAlterarProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jBAtualizarActionPerformed
 
-    //  BOTÃO QUE VOLTA PARA A TELA PRINCIPAL DO SISTEMA
+    /**
+     * Botão que volta para a tela principal do sistema
+     *
+     * @param evt
+     */
+
     private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
         telaPrincipal set = new telaPrincipal();
         set.setVisible(true);
         dispose();
     }//GEN-LAST:event_jBVoltarActionPerformed
 
+    /**
+     * Método que inicializa a tela de alteração de produto
+     *
+     * @param args
+     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             try {

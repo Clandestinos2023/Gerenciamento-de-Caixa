@@ -1,9 +1,27 @@
-package view.telasCadastro;
-
-/**
- * @author : Davidson Teixeira Filho
- * @date : 26/01/2023
+/*
+ * The MIT License
+ *
+ * Copyright 2023 Davidson Teixeira Filho.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
+package view.telasCadastro;
 
 import controller.ClienteController;
 import java.util.logging.Level;
@@ -11,8 +29,24 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import view.telaPrincipal;
 
+/**
+ *
+ * @author Davidson
+ * @since 11/2023
+ *
+ * View - tela de cadastro de cliente
+ */
 public class telaCadastroCliente extends javax.swing.JFrame {
 
+    /**
+     * Objeto referente a classe ClienteController a qual cria um controller de
+     * Cliente
+     */
+    ClienteController clicont = new ClienteController();
+
+    /**
+     * Método que inicializa os componentes da view
+     */
     public telaCadastroCliente() {
         initComponents();
     }
@@ -179,7 +213,12 @@ public class telaCadastroCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //  BOTÃO QUE LIMPA AS INFORMAÇÕES DA TELA
+    /**
+     * Botão que limpa as informações da tela
+     *
+     * @param evt
+     */
+
     private void jBLimparCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimparCadActionPerformed
         jTFCodigo.setText(null);
         jTFNome.setText(null);
@@ -188,7 +227,12 @@ public class telaCadastroCliente extends javax.swing.JFrame {
         bGTipoCliente.clearSelection();
     }//GEN-LAST:event_jBLimparCadActionPerformed
 
-    //  BOTÃO QUE CADASTRA O CLIENTE
+    /**
+     * Botão que cadastra o cliente
+     *
+     * @param evt
+     */
+
     private void jBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadastrarActionPerformed
         Integer age;
         String name, telefone, codigo, typeCliente = null;
@@ -197,21 +241,21 @@ public class telaCadastroCliente extends javax.swing.JFrame {
         name = jTFNome.getText();
         telefone = jTFContato.getText();
         codigo = jTFCodigo.getText();
-        
-        
-        if (jRBCPF.isSelected()) {
+
+        if (!jRBCPF.isSelected()) {
+            if (jRBCNPJ.isSelected()) {
+                typeCliente = "Juridico";
+            }
+        } else {
             typeCliente = "Fisico";
-        } else if (jRBCNPJ.isSelected()) {
-            typeCliente = "Juridico";
         }
-        
-        ClienteController clicont = new ClienteController();
+
         try {
             clicont.cadastrar(name, age, typeCliente, codigo, telefone);
-        
+
             System.out.printf("%s, %d, %s, %s, %s", name, age, telefone,
                     typeCliente, codigo);
-       
+
             JOptionPane.showMessageDialog(jLExib, "Cliente cadastrado com sucesso!");
 
             jBVoltarActionPerformed(evt);
@@ -219,16 +263,26 @@ public class telaCadastroCliente extends javax.swing.JFrame {
             Logger.getLogger(telaCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(jLExib, "Deu errado!");
         }
-        
+
     }//GEN-LAST:event_jBCadastrarActionPerformed
 
-    //  BOTÃO QUE VOLTA PARA A TELA PRINCIPAL DO SISTEMA
+    /**
+     * Botão que volta para a tela principal do sistema
+     *
+     * @param evt
+     */
+
     private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
         telaPrincipal set = new telaPrincipal();
         set.setVisible(true);
         dispose();
     }//GEN-LAST:event_jBVoltarActionPerformed
 
+    /**
+     * Método que inicializa a tela de cadastro de cliente
+     *
+     * @param args
+     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             new telaCadastroCliente().setVisible(true);

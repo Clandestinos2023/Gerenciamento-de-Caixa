@@ -1,9 +1,28 @@
+/*
+ * The MIT License
+ *
+ * Copyright 2023 Davidson Teixeira Filho.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
 package view.telasDelete;
 
-/**
- * @author : Davidson Teixeira Filho
- * @month : 11/2023
- */
 import view.telasAlteracao.*;
 import DAO.FuncionarioDAO;
 import java.util.logging.Level;
@@ -11,10 +30,26 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import view.telaPrincipal;
 
+/**
+ *
+ * @author Davidson
+ * @since 11/2023
+ *
+ * View - tela de delete de funcionário
+ */
 public class telaDeletarFuncionario extends javax.swing.JFrame {
 
+    /**
+     * Objeto referente a classe FuncionarioDAO a qual possui manipulação do
+     * Banco de Dados
+     */
     FuncionarioDAO funcdao = new FuncionarioDAO();
 
+    /**
+     * Método que inicializa os componentes da view
+     *
+     * @throws Exception
+     */
     public telaDeletarFuncionario() throws Exception {
         initComponents();
         funcdao.listarFuncionario(jCBFuncionarios);
@@ -325,7 +360,12 @@ public class telaDeletarFuncionario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //  BOTÃO QUE DELETA UM FUNCIONÁRIO DO BD E VOLTA PARA A TELA PRINCIPAL
+    /**
+     * Botão que deleta um funcionário no BD e volta para a tela principal
+     *
+     * @param evt
+     */
+
     private void jBDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDeletarActionPerformed
         String name;
         int id;
@@ -347,14 +387,24 @@ public class telaDeletarFuncionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBDeletarActionPerformed
 
-    //  BOTÃO QUE VOLTA PARA A TELA PRINCIPAL DO SISTEMA
+    /**
+     * Botão que volta para a tela principal do sistema
+     *
+     * @param evt
+     */
+
     private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
         telaPrincipal set = new telaPrincipal();
         set.setVisible(true);
         dispose();
     }//GEN-LAST:event_jBVoltarActionPerformed
 
-    //  BOTÃO QUE PESQUISA FUNCIONÁRIOS NO BD COM INFORMAÇÕES DO jTextField
+    /**
+     * Botão que pesquisa funcionários no BD com informações do jTextField
+     *
+     * @param evt
+     */
+
     private void jBPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPesquisarActionPerformed
         String pesquisa;
 
@@ -366,12 +416,22 @@ public class telaDeletarFuncionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBPesquisarActionPerformed
 
-    //  PESQUISA FUNCIONÁRIOS NO BD ATRAVÉS DE UM jTextField
+    /**
+     * Pesquisa de funcionários no BD através de um jTextField
+     *
+     * @param evt
+     */
+
     private void jTFPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFPesquisarActionPerformed
         jBPesquisarActionPerformed(evt);
     }//GEN-LAST:event_jTFPesquisarActionPerformed
 
-    //  BOTÃO QUE AO SER CLICADO ATUALIZA AS INFORMAÇÕES DO FUNCIONÁRIO
+    /**
+     * Botão que ao ser clicado atualiza as informaçõs do funcionário
+     *
+     * @param evt
+     */
+
     private void jBAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAtualizarActionPerformed
         String nome;
         int id;
@@ -386,18 +446,12 @@ public class telaDeletarFuncionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBAtualizarActionPerformed
 
+    /**
+     * Método que inicializa a tela de delete de funcionário
+     *
+     * @param args
+     */
     public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(telaDeletarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             try {
                 new telaDeletarFuncionario().setVisible(true);

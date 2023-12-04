@@ -1,12 +1,37 @@
-package view;
-
-/**
- * @author : Davidson Teixeira Filho
- * @month : 11/2023
+/*
+ * The MIT License
+ *
+ * Copyright 2023 Davidson Teixeira Filho.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
+package view;
 
 import javax.swing.JOptionPane;
 
+/**
+ *
+ * @author Davidson
+ * @since 11/2023
+ *
+ * View - tela de login
+ */
 public class telaLogin extends javax.swing.JFrame {
 
     public telaLogin() {
@@ -17,7 +42,6 @@ public class telaLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTFCodID = new javax.swing.JTextField();
         jLUser = new javax.swing.JLabel();
         jLPassword = new javax.swing.JLabel();
         jBLogin = new javax.swing.JButton();
@@ -103,15 +127,19 @@ public class telaLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //  BOTÃO QUE EFETUA O LOGIN NO SISTEMA UTILIZANDO O LOGIN PADRÃO
+    /**
+     * Botão que efetua o login no sistema utilizando o login padrão
+     *
+     * @param evt
+     */
     private void jBLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLoginActionPerformed
         String user, senha;
 
         user = jTFUser.getText();
         senha = jTFPassword.getText();
 
-        if ((user.equals("admin") ) && senha.equals("admin")){
-            JOptionPane.showMessageDialog(jLExib, "Bem-vindo "+ user);
+        if ((user.equals("admin")) && senha.equals("admin")) {
+            JOptionPane.showMessageDialog(jLExib, "Bem-vindo " + user);
             telaPrincipal screen = new telaPrincipal();
             screen.setVisible(true);
             dispose();
@@ -120,12 +148,21 @@ public class telaLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBLoginActionPerformed
 
-    //  BOTÃO QUE LIMPA AS INFORMAÇÕES DA TELA
+    /**
+     * Botão que limpa as informações da tela
+     *
+     * @param evt
+     */
     private void jBCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCleanActionPerformed
         jTFUser.setText("");
         jTFPassword.setText("");
     }//GEN-LAST:event_jBCleanActionPerformed
 
+    /**
+     * Método que inicia a view
+     *
+     * @param args
+     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             new telaLogin().setVisible(true);
@@ -139,7 +176,6 @@ public class telaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLExib;
     private javax.swing.JLabel jLPassword;
     private javax.swing.JLabel jLUser;
-    private javax.swing.JTextField jTFCodID;
     private javax.swing.JPasswordField jTFPassword;
     private javax.swing.JTextField jTFUser;
     // End of variables declaration//GEN-END:variables

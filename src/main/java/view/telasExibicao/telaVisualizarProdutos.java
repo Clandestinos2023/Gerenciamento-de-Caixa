@@ -1,33 +1,56 @@
+/*
+ * The MIT License
+ *
+ * Copyright 2023 Davidson Teixeira Filho.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
 package view.telasExibicao;
 
-/**
- * @author : Davidson Teixeira Filho
- * @month : 11/2023
- */
-
 import DAO.ProdutoDAO;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 import view.telaPrincipal;
 
+/**
+ *
+ * @author Davidson
+ * @since 11/2023
+ *
+ * View - tela de visualização de produtos
+ */
 public class telaVisualizarProdutos extends javax.swing.JFrame {
-    
-    ProdutoDAO proddao = new ProdutoDAO();
-    
-    public static JTable prod;
 
-    //  BUSCA TODOS OS PRODUTOS NO BD E EXIBE ELES EM FORMATO DE TABELA
+    /**
+     * Objeto referente a classe ProdutoDAO a qual possui manipulação do Banco
+     * de Dados
+     */
+    ProdutoDAO proddao = new ProdutoDAO();
+
+    /**
+     * Método que inicializa os componentes da view
+     *
+     * @throws Exception
+     */
     public telaVisualizarProdutos() throws Exception {
         initComponents();
         proddao.visualizarProdutos(jTbProdutos);
-        
-        prod = jTbProdutos;
     }
 
     @SuppressWarnings("unchecked")
@@ -100,15 +123,25 @@ public class telaVisualizarProdutos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Botão que volta para a tela principal do sistema
+     *
+     * @param evt
+     */
+
     private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
         dispose();
         telaPrincipal set = new telaPrincipal();
         set.setVisible(true);
     }//GEN-LAST:event_jBVoltarActionPerformed
 
-
+    /**
+     * Método que inicializa a tela de visualização de produtos
+     *
+     * @param args
+     */
     public static void main(String args[]) {
-     
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {

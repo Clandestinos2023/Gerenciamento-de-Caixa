@@ -1,19 +1,58 @@
-package view.telasCadastro;
-
-/**
- * @author : Davidson Teixeira Filho
- * @month : 11/2023
+/*
+ * The MIT License
+ *
+ * Copyright 2023 Davidson Teixeira Filho.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
+package view.telasCadastro;
 
 import controller.ProdutoController;
 import javax.swing.JOptionPane;
 import view.telaPrincipal;
 
+/**
+ *
+ * @author Davidson
+ * @since 11/2023
+ *
+ * View - tela de cadastro de produto
+ */
 public class telaCadastroProduto extends javax.swing.JFrame {
 
+    private String nome;
+    private double value;
+    private int quantidade;
+
+    /**
+     * Objeto referente a classe ProdutoController a qual cria um controller de
+     * Produto
+     */
+    ProdutoController prodcont = new ProdutoController();
+
+    /**
+     * Método que inicializa os componentes da view
+     */
     public telaCadastroProduto() {
         initComponents();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -128,30 +167,38 @@ public class telaCadastroProduto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //  BOTÃO QUE LIMPA AS INFORMAÇÕES DA TELA
+    /**
+     * Botão que limpa as informações da tela
+     *
+     * @param evt
+     */
+
     private void jBLimparCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimparCadActionPerformed
         jTFProdNome.setText(null);
         jTFValor.setText(null);
         jTFQuantidade.setText(null);
     }//GEN-LAST:event_jBLimparCadActionPerformed
 
-    //  BOTÃO QUE CADASTRA O PRODUTO
+    /**
+     * Botão que cadastra o produto
+     *
+     * @param evt
+     */
+
     private void jBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadastrarActionPerformed
 
-        String name, quantidade, valor;
+        String quant, valor;
 
         valor = jTFValor.getText();
-        name = jTFProdNome.getText();
-        quantidade = jTFQuantidade.getText();
+        nome = jTFProdNome.getText();
+        quant = jTFQuantidade.getText();
 
-        if (name.length() > 0 & quantidade.length() > 0 & valor.length() > 0) {
-            
-            int quant = Integer.parseInt(quantidade);
-            double value = Double.parseDouble(valor);
-            
-            ProdutoController prodcont = new ProdutoController();
-            
-            prodcont.cadastrar(name, value, quant);
+        if (nome.length() > 0 & quant.length() > 0 & valor.length() > 0) {
+
+            quantidade = Integer.parseInt(quant);
+            value = Double.parseDouble(valor);
+
+            prodcont.cadastrar(nome, value, quantidade);
 
             JOptionPane.showMessageDialog(jLExib, "Produto cadastrado "
                     + "com sucesso!");
@@ -162,15 +209,25 @@ public class telaCadastroProduto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBCadastrarActionPerformed
 
-    //  BOTÃO QUE VOLTA PARA A TELA PRINCIPAL DO SISTEMA
+    /**
+     * Botão que volta para a tela principal do sistema
+     *
+     * @param evt
+     */
+
     private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
         telaPrincipal set = new telaPrincipal();
         set.setVisible(true);
         dispose();
     }//GEN-LAST:event_jBVoltarActionPerformed
 
+    /**
+     * Método que inicializa a tela de cadastro de produto
+     *
+     * @param args
+     */
     public static void main(String args[]) {
-       
+
         java.awt.EventQueue.invokeLater(() -> {
             new telaCadastroProduto().setVisible(true);
         });

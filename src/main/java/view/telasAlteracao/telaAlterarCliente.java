@@ -1,40 +1,57 @@
+/*
+ * The MIT License
+ *
+ * Copyright 2023 Davidson Teixeira Filho.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
 package view.telasAlteracao;
 
-/**
- * @author : Davidson Teixeira Filho
- * @month : 11/2023
- */
 import DAO.ClienteDAO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
 import view.telaPrincipal;
 
+/**
+ *
+ * @author Davidson
+ * @since 11/2023
+ *
+ * View - tela de alteração de cliente
+ */
 public class telaAlterarCliente extends javax.swing.JFrame {
 
+    /**
+     * Objeto referente a classe ClienteDAO a qual possui manipulação do Banco
+     * de Dados
+     */
     ClienteDAO clidao = new ClienteDAO();
 
-    public static JComboBox cli;
-    public static JTextField nome;
-    public static JTextField idade;
-    public static JRadioButton fis;
-    public static JRadioButton jur;
-    public static JTextField codigoCliente;
-    public static JTextField contato;
-
+    /**
+     * Método que inicializa os componentes da view
+     *
+     * @throws Exception
+     */
     public telaAlterarCliente() throws Exception {
         initComponents();
         clidao.listarCliente(jCBClientes);
-        cli = jCBClientes;
-        nome = jTFNome;
-        idade = jTFIdade;
-        fis = jRBCPF;
-        jur = jRBCNPJ;
-        codigoCliente = jTFCodigo;
-        contato = jTFCodigo;
     }
 
     @SuppressWarnings("unchecked")
@@ -238,7 +255,12 @@ public class telaAlterarCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //  BOTÃO QUE EFETUA A ATUALIZAÇÃO DO CLIENTE NO BD E ATUALIZA A PÁGINA
+    /**
+     * Botão que efetua a atualização do cliente no BD e atualiza a tela
+     *
+     * @param evt
+     */
+
     private void jBAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAlterarActionPerformed
         int age, id;
         String nome, name, telefone, codigo, typeCliente = null;
@@ -274,14 +296,23 @@ public class telaAlterarCliente extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jBAlterarActionPerformed
 
-    //  BOTÃO QUE VOLTA PARA A TELA PRINCIPAL DO SISTEMA
+    /**
+     * Botão que volta para a tela principal do sistema
+     *
+     * @param evt
+     */
+
     private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
         telaPrincipal set = new telaPrincipal();
         set.setVisible(true);
         dispose();
     }//GEN-LAST:event_jBVoltarActionPerformed
 
-    //  BOTÃO QUE PESQUISA CLIENTES NO BD COM INFORMAÇÕES DO jTextField
+    /**
+     * Botão que pesquisa clientes no BD com informações do jTextField
+     *
+     * @param evt
+     */
     private void jBPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPesquisarActionPerformed
         String pesquisa;
 
@@ -295,12 +326,21 @@ public class telaAlterarCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBPesquisarActionPerformed
 
-    //  PESQUISA CLIENTES NO BD ATRAVÉS DE UM jTextField
+    /**
+     * Pesquisa de clientes no BD através de um jTextField
+     *
+     * @param evt
+     */
+
     private void jTFPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFPesquisarActionPerformed
         jBPesquisarActionPerformed(evt);
     }//GEN-LAST:event_jTFPesquisarActionPerformed
 
-    //  BOTÃO QUE AO SER CLICADO ATUALIZA AS INFORMAÇÕES DO CLIENTE
+    /**
+     * Botão que ao ser clicado atualiza as informações do cliente
+     *
+     * @param evt
+     */
     private void jBAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAtualizarActionPerformed
         int id;
         String nome;
@@ -317,6 +357,11 @@ public class telaAlterarCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBAtualizarActionPerformed
 
+    /**
+     * Método que inicializa a tela de alteração de cliente
+     *
+     * @param args
+     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             try {

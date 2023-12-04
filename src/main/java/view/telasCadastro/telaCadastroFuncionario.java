@@ -1,9 +1,27 @@
-package view.telasCadastro;
-
-/**
- * @author : Davidson Teixeira Filho
- * @month : 11/2023
+/*
+ * The MIT License
+ *
+ * Copyright 2023 Davidson Teixeira Filho.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
+package view.telasCadastro;
 
 import controller.FuncionarioController;
 import java.util.logging.Level;
@@ -11,8 +29,24 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import view.telaPrincipal;
 
+/**
+ *
+ * @author Davidson
+ * @since 11/2023
+ *
+ * View - tela de cadastro de funcionário
+ */
 public class telaCadastroFuncionario extends javax.swing.JFrame {
 
+    /**
+     * Objeto referente a classe FuncionarioController a qual cria um controller
+     * de Funcionario
+     */
+    FuncionarioController funcont = new FuncionarioController();
+
+    /**
+     * Método que inicializa os componentes da view
+     */
     public telaCadastroFuncionario() {
         initComponents();
     }
@@ -296,12 +330,15 @@ public class telaCadastroFuncionario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //  BOTÃO QUE CADASTRA O FUNCIONARIO
+    /**
+     * Botão que cadastra o funcionário
+     *
+     * @param evt
+     */
+
     private void jBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadastrarActionPerformed
         String name, user, pass, confirmPass,
                 phone, mail, sex, CPF;
-
-        FuncionarioController funcont = new FuncionarioController();
 
         name = jTFNome.getText();
         user = jTFUsuario.getText();
@@ -348,7 +385,12 @@ public class telaCadastroFuncionario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jBCadastrarActionPerformed
 
-    //  BOTÃO QUE LIMPA AS INFORMAÇÕES DA TELA
+    /**
+     * Botão que limpa as informações da tela
+     *
+     * @param evt
+     */
+
     private void jBLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimparActionPerformed
         jTFNome.setText("");
         jTFUsuario.setText("");
@@ -360,13 +402,23 @@ public class telaCadastroFuncionario extends javax.swing.JFrame {
         rBGSexo.clearSelection();
     }//GEN-LAST:event_jBLimparActionPerformed
 
-    //  BOTÃO QUE VOLTA PARA A TELA PRINCIPAL DO SISTEMA
+    /**
+     * Botão que volta para a tela principal do sistema
+     *
+     * @param evt
+     */
+
     private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
         telaPrincipal set = new telaPrincipal();
         set.setVisible(true);
         dispose();
     }//GEN-LAST:event_jBVoltarActionPerformed
 
+    /**
+     * Método que inicializa a tela de cadastro de funcionário
+     *
+     * @param args
+     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             new telaCadastroFuncionario().setVisible(true);

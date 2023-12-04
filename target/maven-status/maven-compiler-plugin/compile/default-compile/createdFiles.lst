@@ -5,7 +5,6 @@ view\telasDelete\telaDeletarCliente.class
 view\telasDelete\telaDeletarProduto.class
 view\telasExibicao\telaVisualizarClientes$1.class
 view\telasExibicao\telaVisualizarFuncionarios$2.class
-database\TesteConexao.class
 DAO\VendaDAO.class
 view\telasCadastro\telaCadastroProduto$2.class
 view\telasCadastro\telaCadastroCliente$3.class
@@ -40,6 +39,7 @@ view\telasAlteracao\telaAlterarCliente$3.class
 view\telasExibicao\telaVisualizarFuncionarios$1.class
 view\telasCadastro\telaCadastroCliente.class
 view\telasDelete\telaDeletarCliente$3.class
+view\telasExibicao\telaVisualizarClientes.form
 view\telaLogin.class
 view\telasDelete\telaDeletarProduto$5.class
 view\telasAlteracao\telaAlterarFuncionario$5.class
@@ -60,6 +60,7 @@ view\telasAlteracao\telaAlterarFuncionario$4.class
 view\telasCadastro\telaCadastroProduto$3.class
 view\telasDelete\telaDeletarFuncionario$2.class
 view\telasExibicao\telaVisualizarProdutos.class
+view\telasExibicao\telaVisualizarVendas.form
 view\telasAlteracao\telaAlterarProduto$4.class
 view\telasDelete\telaDeletarCliente$4.class
 view\telasDelete\telaDeletarProduto$3.class
@@ -70,6 +71,7 @@ view\telaPrincipal$12.class
 view\telasDelete\telaDeletarCliente$1.class
 model\Cliente.class
 model\Produto.class
+view\telasDelete\telaDeletarProduto.form
 view\telaVenda$3.class
 view\telaPrincipal$9.class
 database\Conexao.class
@@ -90,17 +92,20 @@ view\telasDelete\telaDeletarFuncionario.class
 view\telaVenda$5.class
 view\telasExibicao\telaVisualizarClientes.class
 controller\ClienteController.class
+view\telasExibicao\telaVisualizarFuncionarios.form
 view\telasAlteracao\telaAlterarProduto$2.class
 view\telaVenda.class
+view\telasExibicao\telaVisualizarProdutos.form
 view\telaPrincipal$3.class
+view\telasDelete\telaDeletarFuncionario.form
 view\telasCadastro\telaCadastroProduto.class
 view\telasDelete\telaDeletarProduto$2.class
 view\telaPrincipal$10.class
 view\telaPrincipal$15.class
 view\telasCadastro\telaCadastroFuncionario$1.class
 view\telasExibicao\telaVisualizarClientes$2.class
-view\telasExibicao\telaVisualizarFuncionarios$3.class
 view\telasExibicao\telaVisualizarProdutos$3.class
+view\telasDelete\telaDeletarCliente.form
 view\telaPrincipal$4.class
 view\telasAlteracao\telaAlterarProduto$1.class
 view\telaVenda$4.class

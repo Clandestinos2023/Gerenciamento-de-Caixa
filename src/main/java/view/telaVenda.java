@@ -1,9 +1,27 @@
-package view;
-
-/**
- * @author : Davidson Teixeira Filho
- * @month : 11/2023
+/*
+ * The MIT License
+ *
+ * Copyright 2023 Davidson Teixeira Filho.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
+package view;
 
 import DAO.ClienteDAO;
 import DAO.ProdutoDAO;
@@ -13,19 +31,40 @@ import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
+/**
+ *
+ * @author Davidson
+ * @since 11/2023
+ *
+ * View - tela de venda
+ */
 public class telaVenda extends javax.swing.JFrame {
 
+    /**
+     * Objeto referente a classe ClienteDAO a qual possui manipulação do Banco
+     * de Dados
+     */
     ClienteDAO clidao = new ClienteDAO();
+    /**
+     * Objeto referente a classe ProdutoDAO a qual possui manipulação do Banco
+     * de Dados
+     */
     ProdutoDAO proddao = new ProdutoDAO();
+    /**
+     * Objeto referente a classe VendaController a qual cria um controller de
+     * Venda
+     */
     VendaController vendcont = new VendaController();
-    
-    public static JComboBox qnt;
 
+    /**
+     * Método que inicia os componetes da tela
+     *
+     * @throws Exception
+     */
     public telaVenda() throws Exception {
         initComponents();
         clidao.listarCliente(jCBCliente);
         proddao.listarProduto(jCBItem);
-        qnt = jCBQnt;
     }
 
     @SuppressWarnings("unchecked")
@@ -302,7 +341,12 @@ public class telaVenda extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //  BOTÃO QUE EFETUA A COMPRA
+    /**
+     * Botão que efetua a venda
+     *
+     * @param evt
+     */
+
     private void jBComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBComprarActionPerformed
         String nomeCli, descricao;
         double valor;
@@ -331,7 +375,12 @@ public class telaVenda extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBComprarActionPerformed
 
-    //  BOTÃO QUE ADICIONA ITENS Á COMPRA
+    /**
+     * Botão que adiciona itens á venda
+     *
+     * @param evt
+     */
+
     private void jBAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAddActionPerformed
         String desc, descricao, item;
         double valorTotal, valor, add, vR;
@@ -371,7 +420,12 @@ public class telaVenda extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBAddActionPerformed
 
-    //  BOTÃO QUE PESQUISA PRODUTOS NO BD COM INFORMAÇÕES DO jTextField
+    /**
+     * Método que pesquisa produtos no BD com informações do jTextField
+     *
+     * @param evt
+     */
+
     private void jBPesqProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPesqProdActionPerformed
         String pesquisa;
 
@@ -383,12 +437,21 @@ public class telaVenda extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBPesqProdActionPerformed
 
-    //  PESQUISA PRODUTOS NO BD ATRAVÉS DE UM jTextField
+    /**
+     * Pesquisa de produtos no BD através de um jTextField
+     *
+     * @param evt
+     */
     private void jTFPesqProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFPesqProdActionPerformed
         jBPesqProdActionPerformed(evt);
     }//GEN-LAST:event_jTFPesqProdActionPerformed
 
-    //  BOTÃO QUE PESQUISA CLIENTES NO BD COM INFORMAÇÕES DO jTextField
+    /**
+     * Botão que pesquisa clientes no BD com informações do jTextField
+     *
+     * @param evt
+     */
+
     private void jBPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPesquisarActionPerformed
         String pesquisa;
 
@@ -400,19 +463,34 @@ public class telaVenda extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBPesquisarActionPerformed
 
-    //  BOTÃO QUE VOLTA PARA A TELA PRINCIPAL DO SISTEMA
+    /**
+     * Botão que volta para a tela principal do sistema
+     *
+     * @param evt
+     */
+
     private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
         telaPrincipal set = new telaPrincipal();
         set.setVisible(true);
         dispose();
     }//GEN-LAST:event_jBVoltarActionPerformed
 
-    //  PESQUISA CLIENTES NO BD ATRAVÉS DE UM jTextField
+    /**
+     * Pesquisa de clientes no BD através de um jTextField
+     *
+     * @param evt
+     */
+
     private void jTFPesquisaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFPesquisaClienteActionPerformed
         jBPesquisarActionPerformed(evt);
     }//GEN-LAST:event_jTFPesquisaClienteActionPerformed
 
-    //  BOTÃO QUE AO SER CLICADO ATUALIZA AS INFORMAÇÕES DO PRODUTO
+    /**
+     * Botão que ao ser clicado atualiza as informações do produto
+     *
+     * @param evt
+     */
+
     private void jBUpdateProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBUpdateProdutoActionPerformed
         String nomeID;
         int id;
@@ -427,6 +505,11 @@ public class telaVenda extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBUpdateProdutoActionPerformed
 
+    /**
+     * Método que inicializa a tela de venda
+     *
+     * @param args
+     */
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {

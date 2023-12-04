@@ -4,16 +4,69 @@ package DAO;
  * @author : Davidson Teixeira Filho
  * @month : 11/2023
  */
+
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import view.telasAlteracao.telaAlterarFuncionario;
-import view.telasExibicao.telaVisualizarFuncionarios;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
 public class FuncionarioDAOTest {
+    
+    public static JTable table;
+    
+    public static JTextField name;
+    public static JTextField user;
+    public static JTextField pass;
+    public static JTextField confPass;
+    public static JTextField phone;
+    public static JTextField mail;
+    public static JRadioButton male;
+    public static JRadioButton female;
+    public static JTextField doc;
+    
+    public static JComboBox funcionario;
+
+    @BeforeAll
+    public static void setUpClass() throws Exception {
+        table = new JTable();
+        table.setModel(new DefaultTableModel(
+                new Object[][]{},
+                //TITULOS DAS SUAS COLUNAS
+                new String[]{"ID", "Nome", "Usuario", "Telefone", "Email", "Sexo", "CPF"}) {
+        });
+        
+        name = new JTextField();
+        user = new JTextField();
+        pass = new JTextField();
+        confPass = new JTextField();
+        phone = new JTextField();
+        mail = new JTextField();
+        male = new JRadioButton();
+        female = new JRadioButton();
+        doc = new JTextField();
+        
+        funcionario = new JComboBox();
+        funcionario.addItem("------");
+    }
+
+    @AfterAll
+    public static void tearDownClass() throws Exception {
+    }
+
+    @BeforeEach
+    public void setUp() throws Exception {
+    }
+
+    @AfterEach
+    public void tearDown() throws Exception {
+    }
 
     /**
      * Test of cadastrar method, of class FuncionarioDAO.
@@ -147,64 +200,6 @@ public class FuncionarioDAOTest {
         assertEquals(expResult, result);
     }
 
-//    /**
-//     * Test of listarFuncionario method, of class FuncionarioDAO.
-//     * @throws java.lang.Exception
-//     */
-//    @Test
-//    public void testListarFuncionario() throws Exception {
-//        System.out.println("listarFuncionario");
-//        JComboBox func = telaAlterarFuncionario.func;
-//        FuncionarioDAO instance = new FuncionarioDAO();
-//        instance.listarFuncionario(func);
-//    }
-//
-//    /**
-//     * Test of pesquisarFuncionario method, of class FuncionarioDAO.
-//     * @throws java.lang.Exception
-//     */
-//    @Test
-//    public void testPesquisarFuncionario() throws Exception {
-//        System.out.println("pesquisarFuncionario");
-//        String pesq = "dav";
-//        JComboBox func = telaAlterarFuncionario.func;
-//        FuncionarioDAO instance = new FuncionarioDAO();
-//        instance.pesquisarFuncionario(pesq, func);
-//    }
-//
-//    /**
-//     * Test of visualizarFuncionarios method, of class FuncionarioDAO.
-//     * @throws java.lang.Exception
-//     */
-//    @Test
-//    public void testVisualizarFuncionarios() throws Exception {
-//        System.out.println("visualizarFuncionarios");
-//        JTable func = telaVisualizarFuncionarios.func;
-//        FuncionarioDAO instance = new FuncionarioDAO();
-//        instance.visualizarFuncionarios(func);
-//    }
-//
-//    /**
-//     * Test of getFuncionario method, of class FuncionarioDAO.
-//     * @throws java.lang.Exception
-//     */
-//    @Test
-//    public void testGetFuncionario() throws Exception {
-//        System.out.println("getFuncionario");
-//        int id = 11;
-//        JTextField nome = telaAlterarFuncionario.nome;
-//        JTextField usuario = telaAlterarFuncionario.usuario;
-//        JTextField senha = telaAlterarFuncionario.senha;
-//        JTextField confirmacaoSenha = telaAlterarFuncionario.confirmacaoSenha;
-//        JTextField telefone = telaAlterarFuncionario.telefone;
-//        JTextField email = telaAlterarFuncionario.email;
-//        JRadioButton masc = telaAlterarFuncionario.masc;
-//        JRadioButton fem = telaAlterarFuncionario.fem;
-//        JTextField cpf = telaAlterarFuncionario.cpf;
-//        FuncionarioDAO instance = new FuncionarioDAO();
-//        instance.getFuncionario(id, nome, usuario, senha, confirmacaoSenha, telefone, email, masc, fem, cpf);
-//    }
-
     /**
      * @throws java.lang.Exception
      * Test of updateFuncionario method, of class FuncionarioDAO.
@@ -235,5 +230,63 @@ public class FuncionarioDAOTest {
         int id = 31;
         FuncionarioDAO instance = new FuncionarioDAO();
         instance.deleteFuncionario(id);
+    }
+
+    /**
+     * Test of listarFuncionario method, of class FuncionarioDAO.
+     * @throws java.lang.Exception
+     */
+    @Test
+    public void testListarFuncionario() throws Exception {
+        System.out.println("listarFuncionario");
+        JComboBox func = funcionario;
+        FuncionarioDAO instance = new FuncionarioDAO();
+        instance.listarFuncionario(func);
+    }
+
+    /**
+     * Test of pesquisarFuncionario method, of class FuncionarioDAO.
+     * @throws java.lang.Exception
+     */
+    @Test
+    public void testPesquisarFuncionario() throws Exception {
+        System.out.println("pesquisarFuncionario");
+        String pesquisa = "Rob";
+        JComboBox func = funcionario;
+        FuncionarioDAO instance = new FuncionarioDAO();
+        instance.pesquisarFuncionario(pesquisa, func);
+    }
+
+    /**
+     * Test of getFuncionario method, of class FuncionarioDAO.
+     * @throws java.lang.Exception
+     */
+    @Test
+    public void testGetFuncionario() throws Exception {
+        System.out.println("getFuncionario");
+        int id = 1;
+        JTextField nome = name;
+        JTextField usuario = user;
+        JTextField senha = pass;
+        JTextField confirmacaoSenha = confPass;
+        JTextField telefone = phone;
+        JTextField email = mail;
+        JRadioButton masc = male;
+        JRadioButton fem = female;
+        JTextField cpf = doc;
+        FuncionarioDAO instance = new FuncionarioDAO();
+        instance.getFuncionario(id, nome, usuario, senha, confirmacaoSenha, telefone, email, masc, fem, cpf);
+    }
+
+    /**
+     * Test of visualizarFuncionarios method, of class FuncionarioDAO.
+     * @throws java.lang.Exception
+     */
+    @Test
+    public void testVisualizarFuncionarios() throws Exception {
+        System.out.println("visualizarFuncionarios");
+        JTable func = table;
+        FuncionarioDAO instance = new FuncionarioDAO();
+        instance.visualizarFuncionarios(func);
     }
 }

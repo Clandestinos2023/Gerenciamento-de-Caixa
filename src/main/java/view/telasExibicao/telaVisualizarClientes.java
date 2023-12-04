@@ -1,28 +1,57 @@
-package view.telasExibicao;
-
-/**
- * @author : Davidson Teixeira Filho
- * @month : 11/2023
+/*
+ * The MIT License
+ *
+ * Copyright 2023 Davidson Teixeira Filho.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
+package view.telasExibicao;
 
 import DAO.ClienteDAO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JTable;
 import view.telaPrincipal;
 
+/**
+ *
+ * @author Davidson
+ * @since 11/2023
+ *
+ * View - tela de visualização de clientes
+ */
 public class telaVisualizarClientes extends javax.swing.JFrame {
-    
-    ClienteDAO clidao = new ClienteDAO();
-    
-    public static JTable cli;
 
-    //  BUSCA TODOS OS PRODUTOS NO BD E EXIBE ELES EM FORMATO DE TABELA
+    /**
+     * Objeto referente a classe ClienteDAO a qual possui manipulação do Banco
+     * de Dados
+     */
+    ClienteDAO clidao = new ClienteDAO();
+
+    /**
+     * Método que inicializa os componentes da view
+     *
+     * @throws Exception
+     */
     public telaVisualizarClientes() throws Exception {
         initComponents();
-        
+
         clidao.visualizarCliente(jTbClientes);
-        cli = jTbClientes;
     }
 
     @SuppressWarnings("unchecked")
@@ -101,15 +130,24 @@ public class telaVisualizarClientes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Botão que volta para a tela principal do sistema
+     *
+     * @param evt
+     */
     private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
         dispose();
         telaPrincipal set = new telaPrincipal();
         set.setVisible(true);
     }//GEN-LAST:event_jBVoltarActionPerformed
 
-
+    /**
+     * Método que inializa a tela de visualização de clientes
+     *
+     * @param args
+     */
     public static void main(String args[]) {
-     
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
