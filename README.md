@@ -2,20 +2,19 @@
 
 # Sobre o projeto
 
-O Gerenciamente de Caixa e um projeto voltado para aprimorarmos as boas praticas de MVC( model visual controller), sendo uma boa pratica principalemente para desenvolvedores e equipes de TI.
-Projeto devido a trabalho do curso Análise e Desenvolvimento de sistemas no Centro Universitario UNA - Contagem/MG
+O Gerenciamento de Caixa e um projeto voltado para aprimorarmos as boas práticas de MVC (model, view, controller), sendo uma boa prática principalmente para desenvolvedores e equipes de TI.
+O projeto foi desenvolvido devido a trabalho do curso Análise e Desenvolvimento de Sistemas no Centro Universitario UNA - Contagem/MG
 
 
 # Tecnologias utilizadas
 ## Back end
 - Java
-- Spring Boot
-- JPA / Hibernate
 - Maven
 ## Front end
-- HTML / CSS 
+- Form
+- JFrame 
 ## Implantação em produção
-- Back end: Heroku
+- Back end: A definir
 - Front end web: A definir
 - Banco de dados: A definir
 
